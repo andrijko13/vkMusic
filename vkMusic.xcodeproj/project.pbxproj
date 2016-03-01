@@ -30,6 +30,8 @@
 		32B2A58B1C7D104000D3110B /* STKQueueEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A5811C7D104000D3110B /* STKQueueEntry.m */; };
 		32B2A5AB1C7D288E00D3110B /* SampleQueueId.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A5AA1C7D288E00D3110B /* SampleQueueId.m */; };
 		32B2A70B1C8537EA00D3110B /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B2A70A1C8537DB00D3110B /* VKSdkFramework.framework */; };
+		32B2A70D1C854EBD00D3110B /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B2A70A1C8537DB00D3110B /* VKSdkFramework.framework */; };
+		32B2A70E1C854EBD00D3110B /* VKSdkFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 32B2A70A1C8537DB00D3110B /* VKSdkFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,13 @@
 			remoteGlobalIDString = F34670311B8B7C5A003EF74B;
 			remoteInfo = VKSdkFramework;
 		};
+		32B2A70F1C854EBD00D3110B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32B2A6FF1C8537DA00D3110B /* VK-ios-sdk.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F34670301B8B7C5A003EF74B;
+			remoteInfo = VKSdkFramework;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +72,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				32B2A70E1C854EBD00D3110B /* VKSdkFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32B2A70B1C8537EA00D3110B /* VKSdkFramework.framework in Frameworks */,
+				32B2A70D1C854EBD00D3110B /* VKSdkFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +248,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				32B2A7101C854EBD00D3110B /* PBXTargetDependency */,
 			);
 			name = vkMusic;
 			productName = vkMusic;
@@ -352,6 +364,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		32B2A7101C854EBD00D3110B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = VKSdkFramework;
+			targetProxy = 32B2A70F1C854EBD00D3110B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		32357B381C7A934C00400B2F /* Main.storyboard */ = {

@@ -189,13 +189,28 @@
         
         NSString *musDirPath = [documentsDirPath stringByAppendingString:[NSString stringWithFormat: @"/music/%@",cell.textLabel.text]];
         
+        [self playNextSong];
+        
+        NSError *error;
+        BOOL success = [[NSFileManager defaultManager] removeItemAtPath:musDirPath error:&error];
+        if (success) {
+            NSLog(@"Deleted song %@", musDirPath
+                  );
+        }
+        else
+        {
+            NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
+        }
+        [_myMusic removeObjectAtIndex:indexPath.row];
+        [_myTable reloadData];
     }
+    
 }
 
 -(void)tick{
     if (!_audioPlayer) return;
     
-    NSLog(@"tick");
+    //NSLog(@"tick");
     
     switch (_audioPlayer.state) {
         case STKAudioPlayerStatePlaying:
