@@ -1,18 +1,26 @@
 {
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B284A438DC33BB64AB986A25CAE4C61D7BDF09DF",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B284A438DC33BB64AB986A25CAE4C61D7BDF09DF" : 0,
     "C8F50BCDCFDC63763FD6355FD91D619C6B03C252" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "95F27C94-8EBA-4CEC-B975-8FCCA88C89DD",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B284A438DC33BB64AB986A25CAE4C61D7BDF09DF" : "vkMusic\/",
     "C8F50BCDCFDC63763FD6355FD91D619C6B03C252" : "vkMusic\/vkMusic\/vk-ios-sdk\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "vkMusic",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "vkMusic.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/andriko13\/vkMusic.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B284A438DC33BB64AB986A25CAE4C61D7BDF09DF"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/VKCOM\/vk-ios-sdk.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
