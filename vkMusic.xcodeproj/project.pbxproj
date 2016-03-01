@@ -1,0 +1,514 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		32357B2E1C7A934C00400B2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32357B2D1C7A934C00400B2F /* main.m */; };
+		32357B311C7A934C00400B2F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32357B301C7A934C00400B2F /* AppDelegate.m */; };
+		32357B341C7A934C00400B2F /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32357B331C7A934C00400B2F /* FirstViewController.m */; };
+		32357B371C7A934C00400B2F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32357B361C7A934C00400B2F /* SecondViewController.m */; };
+		32357B3A1C7A934C00400B2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32357B381C7A934C00400B2F /* Main.storyboard */; };
+		32357B3C1C7A934C00400B2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32357B3B1C7A934C00400B2F /* Assets.xcassets */; };
+		32357B3F1C7A934C00400B2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32357B3D1C7A934C00400B2F /* LaunchScreen.storyboard */; };
+		32357BB31C7AD8B900400B2F /* ApiCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32357BAF1C7AD8B900400B2F /* ApiCallViewController.m */; };
+		32357BB41C7AD8B900400B2F /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32357BB11C7AD8B900400B2F /* TestViewController.m */; };
+		32357BB71C7AE20900400B2F /* DoingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32357BB61C7AE20900400B2F /* DoingViewController.m */; };
+		32357BBB1C7B9CCB00400B2F /* MyMusicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32357BBA1C7B9CCB00400B2F /* MyMusicController.m */; };
+		32357BC31C7C52D000400B2F /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32357BC21C7C52D000400B2F /* SoundManager.m */; };
+		32B2A5831C7D104000D3110B /* NSMutableArray+STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A5711C7D104000D3110B /* NSMutableArray+STKAudioPlayer.m */; };
+		32B2A5841C7D104000D3110B /* STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A5731C7D104000D3110B /* STKAudioPlayer.m */; };
+		32B2A5851C7D104000D3110B /* STKAutoRecoveringHTTPDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A5751C7D104000D3110B /* STKAutoRecoveringHTTPDataSource.m */; };
+		32B2A5861C7D104000D3110B /* STKCoreFoundationDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A5771C7D104000D3110B /* STKCoreFoundationDataSource.m */; };
+		32B2A5871C7D104000D3110B /* STKDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A5791C7D104000D3110B /* STKDataSource.m */; };
+		32B2A5881C7D104000D3110B /* STKDataSourceWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A57B1C7D104000D3110B /* STKDataSourceWrapper.m */; };
+		32B2A5891C7D104000D3110B /* STKHTTPDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A57D1C7D104000D3110B /* STKHTTPDataSource.m */; };
+		32B2A58A1C7D104000D3110B /* STKLocalFileDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A57F1C7D104000D3110B /* STKLocalFileDataSource.m */; };
+		32B2A58B1C7D104000D3110B /* STKQueueEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A5811C7D104000D3110B /* STKQueueEntry.m */; };
+		32B2A5AB1C7D288E00D3110B /* SampleQueueId.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A5AA1C7D288E00D3110B /* SampleQueueId.m */; };
+		32B2A70B1C8537EA00D3110B /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B2A70A1C8537DB00D3110B /* VKSdkFramework.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		32B2A7051C8537DB00D3110B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32B2A6FF1C8537DA00D3110B /* VK-ios-sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F3C7542D182133CC00964716;
+			remoteInfo = VKSdk;
+		};
+		32B2A7071C8537DB00D3110B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32B2A6FF1C8537DA00D3110B /* VK-ios-sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F3BACC401865905B003158DA;
+			remoteInfo = VKSdkResources;
+		};
+		32B2A7091C8537DB00D3110B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 32B2A6FF1C8537DA00D3110B /* VK-ios-sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F34670311B8B7C5A003EF74B;
+			remoteInfo = VKSdkFramework;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		32357BA11C7A962E00400B2F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		32357B291C7A934C00400B2F /* vkMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vkMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		32357B2D1C7A934C00400B2F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32357B2F1C7A934C00400B2F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		32357B301C7A934C00400B2F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		32357B321C7A934C00400B2F /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		32357B331C7A934C00400B2F /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		32357B351C7A934C00400B2F /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		32357B361C7A934C00400B2F /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		32357B391C7A934C00400B2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		32357B3B1C7A934C00400B2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		32357B3E1C7A934C00400B2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		32357B401C7A934C00400B2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32357BAE1C7AD8B900400B2F /* ApiCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiCallViewController.h; sourceTree = "<group>"; };
+		32357BAF1C7AD8B900400B2F /* ApiCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiCallViewController.m; sourceTree = "<group>"; };
+		32357BB01C7AD8B900400B2F /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		32357BB11C7AD8B900400B2F /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		32357BB21C7AD8B900400B2F /* VKSDKTestApplication-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "VKSDKTestApplication-Prefix.pch"; sourceTree = "<group>"; };
+		32357BB51C7AE20900400B2F /* DoingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoingViewController.h; sourceTree = "<group>"; };
+		32357BB61C7AE20900400B2F /* DoingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoingViewController.m; sourceTree = "<group>"; };
+		32357BB91C7B9CCB00400B2F /* MyMusicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMusicController.h; sourceTree = "<group>"; };
+		32357BBA1C7B9CCB00400B2F /* MyMusicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMusicController.m; sourceTree = "<group>"; };
+		32357BC11C7C52D000400B2F /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
+		32357BC21C7C52D000400B2F /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
+		32B2A5701C7D104000D3110B /* NSMutableArray+STKAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+STKAudioPlayer.h"; sourceTree = "<group>"; };
+		32B2A5711C7D104000D3110B /* NSMutableArray+STKAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+STKAudioPlayer.m"; sourceTree = "<group>"; };
+		32B2A5721C7D104000D3110B /* STKAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKAudioPlayer.h; sourceTree = "<group>"; };
+		32B2A5731C7D104000D3110B /* STKAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKAudioPlayer.m; sourceTree = "<group>"; };
+		32B2A5741C7D104000D3110B /* STKAutoRecoveringHTTPDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKAutoRecoveringHTTPDataSource.h; sourceTree = "<group>"; };
+		32B2A5751C7D104000D3110B /* STKAutoRecoveringHTTPDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKAutoRecoveringHTTPDataSource.m; sourceTree = "<group>"; };
+		32B2A5761C7D104000D3110B /* STKCoreFoundationDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKCoreFoundationDataSource.h; sourceTree = "<group>"; };
+		32B2A5771C7D104000D3110B /* STKCoreFoundationDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKCoreFoundationDataSource.m; sourceTree = "<group>"; };
+		32B2A5781C7D104000D3110B /* STKDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKDataSource.h; sourceTree = "<group>"; };
+		32B2A5791C7D104000D3110B /* STKDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKDataSource.m; sourceTree = "<group>"; };
+		32B2A57A1C7D104000D3110B /* STKDataSourceWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKDataSourceWrapper.h; sourceTree = "<group>"; };
+		32B2A57B1C7D104000D3110B /* STKDataSourceWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKDataSourceWrapper.m; sourceTree = "<group>"; };
+		32B2A57C1C7D104000D3110B /* STKHTTPDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKHTTPDataSource.h; sourceTree = "<group>"; };
+		32B2A57D1C7D104000D3110B /* STKHTTPDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKHTTPDataSource.m; sourceTree = "<group>"; };
+		32B2A57E1C7D104000D3110B /* STKLocalFileDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKLocalFileDataSource.h; sourceTree = "<group>"; };
+		32B2A57F1C7D104000D3110B /* STKLocalFileDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKLocalFileDataSource.m; sourceTree = "<group>"; };
+		32B2A5801C7D104000D3110B /* STKQueueEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKQueueEntry.h; sourceTree = "<group>"; };
+		32B2A5811C7D104000D3110B /* STKQueueEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKQueueEntry.m; sourceTree = "<group>"; };
+		32B2A5821C7D104000D3110B /* StreamingKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "StreamingKit-Prefix.pch"; sourceTree = "<group>"; };
+		32B2A5A91C7D288E00D3110B /* SampleQueueId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleQueueId.h; sourceTree = "<group>"; };
+		32B2A5AA1C7D288E00D3110B /* SampleQueueId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleQueueId.m; sourceTree = "<group>"; };
+		32B2A6FF1C8537DA00D3110B /* VK-ios-sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "VK-ios-sdk.xcodeproj"; path = "vk-ios-sdk/VK-ios-sdk.xcodeproj"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		32357B261C7A934C00400B2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32B2A70B1C8537EA00D3110B /* VKSdkFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		32357B201C7A934C00400B2F = {
+			isa = PBXGroup;
+			children = (
+				32B2A6FF1C8537DA00D3110B /* VK-ios-sdk.xcodeproj */,
+				32357B2B1C7A934C00400B2F /* vkMusic */,
+				32357B2A1C7A934C00400B2F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		32357B2A1C7A934C00400B2F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32357B291C7A934C00400B2F /* vkMusic.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		32357B2B1C7A934C00400B2F /* vkMusic */ = {
+			isa = PBXGroup;
+			children = (
+				32B2A56F1C7D104000D3110B /* StreamingKit */,
+				32357B2F1C7A934C00400B2F /* AppDelegate.h */,
+				32357B301C7A934C00400B2F /* AppDelegate.m */,
+				32357B321C7A934C00400B2F /* FirstViewController.h */,
+				32357B331C7A934C00400B2F /* FirstViewController.m */,
+				32357B351C7A934C00400B2F /* SecondViewController.h */,
+				32357B361C7A934C00400B2F /* SecondViewController.m */,
+				32357B381C7A934C00400B2F /* Main.storyboard */,
+				32357B3B1C7A934C00400B2F /* Assets.xcassets */,
+				32357B3D1C7A934C00400B2F /* LaunchScreen.storyboard */,
+				32357B401C7A934C00400B2F /* Info.plist */,
+				32357BB51C7AE20900400B2F /* DoingViewController.h */,
+				32357BB61C7AE20900400B2F /* DoingViewController.m */,
+				32357BB91C7B9CCB00400B2F /* MyMusicController.h */,
+				32357BBA1C7B9CCB00400B2F /* MyMusicController.m */,
+				32357B2C1C7A934C00400B2F /* Supporting Files */,
+			);
+			path = vkMusic;
+			sourceTree = "<group>";
+		};
+		32357B2C1C7A934C00400B2F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				32357BAE1C7AD8B900400B2F /* ApiCallViewController.h */,
+				32357BAF1C7AD8B900400B2F /* ApiCallViewController.m */,
+				32357BB01C7AD8B900400B2F /* TestViewController.h */,
+				32357BB11C7AD8B900400B2F /* TestViewController.m */,
+				32357BB21C7AD8B900400B2F /* VKSDKTestApplication-Prefix.pch */,
+				32357BC11C7C52D000400B2F /* SoundManager.h */,
+				32357BC21C7C52D000400B2F /* SoundManager.m */,
+				32357B2D1C7A934C00400B2F /* main.m */,
+				32B2A5A91C7D288E00D3110B /* SampleQueueId.h */,
+				32B2A5AA1C7D288E00D3110B /* SampleQueueId.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		32B2A56F1C7D104000D3110B /* StreamingKit */ = {
+			isa = PBXGroup;
+			children = (
+				32B2A5701C7D104000D3110B /* NSMutableArray+STKAudioPlayer.h */,
+				32B2A5711C7D104000D3110B /* NSMutableArray+STKAudioPlayer.m */,
+				32B2A5721C7D104000D3110B /* STKAudioPlayer.h */,
+				32B2A5731C7D104000D3110B /* STKAudioPlayer.m */,
+				32B2A5741C7D104000D3110B /* STKAutoRecoveringHTTPDataSource.h */,
+				32B2A5751C7D104000D3110B /* STKAutoRecoveringHTTPDataSource.m */,
+				32B2A5761C7D104000D3110B /* STKCoreFoundationDataSource.h */,
+				32B2A5771C7D104000D3110B /* STKCoreFoundationDataSource.m */,
+				32B2A5781C7D104000D3110B /* STKDataSource.h */,
+				32B2A5791C7D104000D3110B /* STKDataSource.m */,
+				32B2A57A1C7D104000D3110B /* STKDataSourceWrapper.h */,
+				32B2A57B1C7D104000D3110B /* STKDataSourceWrapper.m */,
+				32B2A57C1C7D104000D3110B /* STKHTTPDataSource.h */,
+				32B2A57D1C7D104000D3110B /* STKHTTPDataSource.m */,
+				32B2A57E1C7D104000D3110B /* STKLocalFileDataSource.h */,
+				32B2A57F1C7D104000D3110B /* STKLocalFileDataSource.m */,
+				32B2A5801C7D104000D3110B /* STKQueueEntry.h */,
+				32B2A5811C7D104000D3110B /* STKQueueEntry.m */,
+				32B2A5821C7D104000D3110B /* StreamingKit-Prefix.pch */,
+			);
+			path = StreamingKit;
+			sourceTree = "<group>";
+		};
+		32B2A7001C8537DA00D3110B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32B2A7061C8537DB00D3110B /* libVKSdk.a */,
+				32B2A7081C8537DB00D3110B /* VKSdkResources.bundle */,
+				32B2A70A1C8537DB00D3110B /* VKSdkFramework.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		32357B281C7A934C00400B2F /* vkMusic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 32357B431C7A934C00400B2F /* Build configuration list for PBXNativeTarget "vkMusic" */;
+			buildPhases = (
+				32357B251C7A934C00400B2F /* Sources */,
+				32357B261C7A934C00400B2F /* Frameworks */,
+				32357B271C7A934C00400B2F /* Resources */,
+				32357BA11C7A962E00400B2F /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = vkMusic;
+			productName = vkMusic;
+			productReference = 32357B291C7A934C00400B2F /* vkMusic.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		32357B211C7A934C00400B2F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = DropGeeks;
+				TargetAttributes = {
+					32357B281C7A934C00400B2F = {
+						CreatedOnToolsVersion = 7.2.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 32357B241C7A934C00400B2F /* Build configuration list for PBXProject "vkMusic" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				ru,
+			);
+			mainGroup = 32357B201C7A934C00400B2F;
+			productRefGroup = 32357B2A1C7A934C00400B2F /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 32B2A7001C8537DA00D3110B /* Products */;
+					ProjectRef = 32B2A6FF1C8537DA00D3110B /* VK-ios-sdk.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				32357B281C7A934C00400B2F /* vkMusic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		32B2A7061C8537DB00D3110B /* libVKSdk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libVKSdk.a;
+			remoteRef = 32B2A7051C8537DB00D3110B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		32B2A7081C8537DB00D3110B /* VKSdkResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = VKSdkResources.bundle;
+			remoteRef = 32B2A7071C8537DB00D3110B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		32B2A70A1C8537DB00D3110B /* VKSdkFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = VKSdkFramework.framework;
+			remoteRef = 32B2A7091C8537DB00D3110B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		32357B271C7A934C00400B2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32357B3F1C7A934C00400B2F /* LaunchScreen.storyboard in Resources */,
+				32357B3C1C7A934C00400B2F /* Assets.xcassets in Resources */,
+				32357B3A1C7A934C00400B2F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		32357B251C7A934C00400B2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32B2A5881C7D104000D3110B /* STKDataSourceWrapper.m in Sources */,
+				32357BB41C7AD8B900400B2F /* TestViewController.m in Sources */,
+				32B2A5871C7D104000D3110B /* STKDataSource.m in Sources */,
+				32357BBB1C7B9CCB00400B2F /* MyMusicController.m in Sources */,
+				32357B371C7A934C00400B2F /* SecondViewController.m in Sources */,
+				32357B311C7A934C00400B2F /* AppDelegate.m in Sources */,
+				32B2A5831C7D104000D3110B /* NSMutableArray+STKAudioPlayer.m in Sources */,
+				32357B341C7A934C00400B2F /* FirstViewController.m in Sources */,
+				32B2A5AB1C7D288E00D3110B /* SampleQueueId.m in Sources */,
+				32B2A58A1C7D104000D3110B /* STKLocalFileDataSource.m in Sources */,
+				32B2A5851C7D104000D3110B /* STKAutoRecoveringHTTPDataSource.m in Sources */,
+				32B2A5861C7D104000D3110B /* STKCoreFoundationDataSource.m in Sources */,
+				32357BB71C7AE20900400B2F /* DoingViewController.m in Sources */,
+				32B2A5891C7D104000D3110B /* STKHTTPDataSource.m in Sources */,
+				32357BC31C7C52D000400B2F /* SoundManager.m in Sources */,
+				32B2A5841C7D104000D3110B /* STKAudioPlayer.m in Sources */,
+				32357BB31C7AD8B900400B2F /* ApiCallViewController.m in Sources */,
+				32357B2E1C7A934C00400B2F /* main.m in Sources */,
+				32B2A58B1C7D104000D3110B /* STKQueueEntry.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		32357B381C7A934C00400B2F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32357B391C7A934C00400B2F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		32357B3D1C7A934C00400B2F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				32357B3E1C7A934C00400B2F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		32357B411C7A934C00400B2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		32357B421C7A934C00400B2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		32357B441C7A934C00400B2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = vkMusic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vkMusic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		32357B451C7A934C00400B2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = vkMusic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vkMusic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		32357B241C7A934C00400B2F /* Build configuration list for PBXProject "vkMusic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32357B411C7A934C00400B2F /* Debug */,
+				32357B421C7A934C00400B2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		32357B431C7A934C00400B2F /* Build configuration list for PBXNativeTarget "vkMusic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				32357B441C7A934C00400B2F /* Debug */,
+				32357B451C7A934C00400B2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 32357B211C7A934C00400B2F /* Project object */;
+}
