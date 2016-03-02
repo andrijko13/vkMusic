@@ -1,16 +1,20 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B284A438DC33BB64AB986A25CAE4C61D7BDF09DF",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B284A438DC33BB64AB986A25CAE4C61D7BDF09DF+++3F9437F",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "B284A438DC33BB64AB986A25CAE4C61D7BDF09DF" : 0,
-    "C8F50BCDCFDC63763FD6355FD91D619C6B03C252" : 0
+    "C8F50BCDCFDC63763FD6355FD91D619C6B03C252+++9341032" : 0,
+    "C8F50BCDCFDC63763FD6355FD91D619C6B03C252+++7055B41" : 0,
+    "B284A438DC33BB64AB986A25CAE4C61D7BDF09DF+++3F9437F" : 0,
+    "C8F50BCDCFDC63763FD6355FD91D619C6B03C252+++24B3C9F" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "95F27C94-8EBA-4CEC-B975-8FCCA88C89DD",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "B284A438DC33BB64AB986A25CAE4C61D7BDF09DF" : "vkMusic\/",
-    "C8F50BCDCFDC63763FD6355FD91D619C6B03C252" : "vkMusic\/vkMusic\/vk-ios-sdk\/"
+    "C8F50BCDCFDC63763FD6355FD91D619C6B03C252+++9341032" : "vkMusic\/vk-ios-sdk\/",
+    "C8F50BCDCFDC63763FD6355FD91D619C6B03C252+++7055B41" : "vkMusic\/vkMusic\/vk-ios-sdk\/",
+    "B284A438DC33BB64AB986A25CAE4C61D7BDF09DF+++3F9437F" : "vkMusic\/",
+    "C8F50BCDCFDC63763FD6355FD91D619C6B03C252+++24B3C9F" : "vkMusic\/vkMusic\/vk-ios-sdk\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "vkMusic",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -19,17 +23,22 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/andriko13\/vkMusic.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B284A438DC33BB64AB986A25CAE4C61D7BDF09DF"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B284A438DC33BB64AB986A25CAE4C61D7BDF09DF+++3F9437F"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/VKCOM\/vk-ios-sdk.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C8F50BCDCFDC63763FD6355FD91D619C6B03C252"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C8F50BCDCFDC63763FD6355FD91D619C6B03C252+++24B3C9F"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/VKCOM\/vk-ios-sdk.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C8F50BCDCFDC63763FD6355FD91D619C6B03C252"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C8F50BCDCFDC63763FD6355FD91D619C6B03C252+++7055B41"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/VKCOM\/vk-ios-sdk.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C8F50BCDCFDC63763FD6355FD91D619C6B03C252+++9341032"
     }
   ]
 }

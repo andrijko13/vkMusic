@@ -21,8 +21,11 @@
 @property (weak, nonatomic) IBOutlet UITableView *_myTable;
 @property NSMutableArray *_myMusic;
 @property (strong) NSTimer *_timer;
+@property (weak, nonatomic) IBOutlet UIButton *_repeatButton;
 
 - (IBAction)_backButton:(id)sender;
 - (IBAction)shuffleButton:(id)sender;
 - (IBAction)editClicked:(id)sender;
+- (IBAction)repeatClicked:(id)sender;
+
 @end

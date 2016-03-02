@@ -18,6 +18,8 @@
     BOOL _songStopped;
     BOOL _nextTrackClicked;
     BOOL _shouldTick;
+    BOOL _repeatSong;
+    UIColor *_defaultButtonColor;
 }
 @end
 
@@ -25,6 +27,7 @@
 @synthesize _myTable;
 @synthesize _myMusic;
 @synthesize _timer;
+@synthesize _repeatButton;
 
 -(BOOL)canBecomeFirstResponder{
     return YES;
@@ -90,6 +93,9 @@
     _shouldTick = YES;
     
     _isEditing = NO;
+    _repeatSong = NO;
+    
+    _defaultButtonColor = [_repeatButton titleColorForState:UIControlStateNormal];
     
     MPRemoteCommandCenter *commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
     commandCenter.playCommand.enabled = TRUE;
@@ -244,6 +250,7 @@
     }
     else{
         if (_songOver && !_songStopped) {
+            if (_repeatSong) _current--;
             [self playNextSong];
         }
     }
@@ -254,7 +261,7 @@
     NSString *documentsDirPath = [paths objectAtIndex:0];
     _current++;
     if (_current == _myMusic.count) _current = 0;
-    NSLog(@"Current in playNext: %ld",_current);
+    NSLog(@"Current in playNext: %ld",(long)_current);
     
     NSString *musDirPath = [documentsDirPath stringByAppendingString:[NSString stringWithFormat: @"/music/%@",[_myMusic objectAtIndex:_current]]];
     NSURL* url = [NSURL fileURLWithPath:musDirPath];
@@ -314,5 +321,11 @@
         _isEditing = NO;
     }
     
+}
+
+- (IBAction)repeatClicked:(id)sender {
+    _repeatSong = !_repeatSong;
+    if (_repeatSong) [_repeatButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    else [_repeatButton setTitleColor:_defaultButtonColor forState:UIControlStateNormal];
 }
 @end
