@@ -273,7 +273,7 @@
                                 <rect key="frame" x="136" y="14" width="49" height="30"/>
                                 <state key="normal" title="Repeat"/>
                                 <connections>
-                                    <action selector="editClicked:" destination="6XA-Ym-a0x" eventType="touchUpInside" id="bQR-My-f5E"/>
+                                    <action selector="repeatClicked:" destination="6XA-Ym-a0x" eventType="touchUpInside" id="Khq-s0-ArN"/>
                                 </connections>
                             </button>
                         </subviews>
