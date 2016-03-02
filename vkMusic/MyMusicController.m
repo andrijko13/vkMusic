@@ -19,6 +19,7 @@
     BOOL _nextTrackClicked;
     BOOL _shouldTick;
     BOOL _repeatSong;
+    BOOL _shuffleSong;
     UIColor *_defaultButtonColor;
 }
 @end
@@ -28,6 +29,7 @@
 @synthesize _myMusic;
 @synthesize _timer;
 @synthesize _repeatButton;
+@synthesize _shuffleButton;
 
 -(BOOL)canBecomeFirstResponder{
     return YES;
@@ -60,6 +62,7 @@
 }
 
 -(void)handleNextTrackButton{
+    if (!_repeatSong) {if (_shuffleSong) _current = arc4random() % [_myMusic count];}
     [self playNextSong];
 }
 
@@ -94,6 +97,7 @@
     
     _isEditing = NO;
     _repeatSong = NO;
+    _shuffleSong = NO;
     
     _defaultButtonColor = [_repeatButton titleColorForState:UIControlStateNormal];
     
@@ -251,6 +255,7 @@
     else{
         if (_songOver && !_songStopped) {
             if (_repeatSong) _current--;
+            else if (_shuffleSong) _current = arc4random() % [_myMusic count];
             [self playNextSong];
         }
     }
@@ -327,5 +332,11 @@
     _repeatSong = !_repeatSong;
     if (_repeatSong) [_repeatButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     else [_repeatButton setTitleColor:_defaultButtonColor forState:UIControlStateNormal];
+}
+
+- (IBAction)shuffleButton:(id)sender {
+    _shuffleSong = !_shuffleSong;
+    if (_shuffleSong) [_shuffleButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    else [_shuffleButton setTitleColor:_defaultButtonColor forState:UIControlStateNormal];
 }
 @end

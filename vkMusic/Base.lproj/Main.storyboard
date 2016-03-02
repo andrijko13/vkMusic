@@ -303,6 +303,7 @@
                     <connections>
                         <outlet property="_myTable" destination="TAW-pQ-4NR" id="cts-xc-JKv"/>
                         <outlet property="_repeatButton" destination="4CS-kY-htM" id="g5J-Kg-O27"/>
+                        <outlet property="_shuffleButton" destination="InS-6f-F2W" id="LL9-tN-rjS"/>
                         <outlet property="searchDisplayController" destination="BXM-AR-nz1" id="ihW-Y9-VOr"/>
                     </connections>
                 </viewController>

@@ -22,6 +22,7 @@
 @property NSMutableArray *_myMusic;
 @property (strong) NSTimer *_timer;
 @property (weak, nonatomic) IBOutlet UIButton *_repeatButton;
+@property (weak, nonatomic) IBOutlet UIButton *_shuffleButton;
 
 - (IBAction)_backButton:(id)sender;
 - (IBAction)shuffleButton:(id)sender;
