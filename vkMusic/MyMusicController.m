@@ -265,7 +265,7 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirPath = [paths objectAtIndex:0];
     _current++;
-    if (_current == _myMusic.count) _current = 0;
+    if (_current >= _myMusic.count) _current = 0;
     NSLog(@"Current in playNext: %ld",(long)_current);
     
     NSString *musDirPath = [documentsDirPath stringByAppendingString:[NSString stringWithFormat: @"/music/%@",[_myMusic objectAtIndex:_current]]];
