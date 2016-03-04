@@ -95,26 +95,24 @@
                                     <outlet property="delegate" destination="VMR-gJ-xJF" id="wD4-Ku-0G3"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Download Progress:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qm5-oE-jL7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Download Progress:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qm5-oE-jL7">
                                 <rect key="frame" x="49" y="31" width="154" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7Rf-vM-dtZ">
-                                <rect key="frame" x="430" y="56" width="150" height="2"/>
+                                <rect key="frame" x="49" y="55" width="150" height="2"/>
                             </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WFK-XW-M9M" firstAttribute="top" secondItem="sRX-vT-N7J" secondAttribute="bottom" id="02q-hl-Qas"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="7Rf-vM-dtZ" secondAttribute="trailing" constant="-10" id="6Bc-WD-ocb"/>
                             <constraint firstItem="qVZ-mV-cir" firstAttribute="leading" secondItem="VMR-gJ-xJF" secondAttribute="leadingMargin" constant="-20" id="D6b-dT-rjJ"/>
                             <constraint firstItem="kpV-Mp-1tj" firstAttribute="top" secondItem="qVZ-mV-cir" secondAttribute="bottom" id="Tou-w0-7PH"/>
-                            <constraint firstItem="7Rf-vM-dtZ" firstAttribute="top" secondItem="DGu-MP-8Yt" secondAttribute="bottom" constant="35" id="UC8-GP-M0V"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qVZ-mV-cir" secondAttribute="trailing" constant="-20" id="VWg-Bu-ihi"/>
-                            <constraint firstItem="7Rf-vM-dtZ" firstAttribute="top" secondItem="DGu-MP-8Yt" secondAttribute="bottom" constant="36" id="b0O-6a-Kle"/>
-                            <constraint firstItem="7Rf-vM-dtZ" firstAttribute="trailing" secondItem="VMR-gJ-xJF" secondAttribute="trailingMargin" id="hVO-ur-2v7"/>
+                            <constraint firstItem="7Rf-vM-dtZ" firstAttribute="leading" secondItem="VMR-gJ-xJF" secondAttribute="leadingMargin" constant="29" id="eJ0-Tf-lh1"/>
+                            <constraint firstItem="7Rf-vM-dtZ" firstAttribute="top" secondItem="qm5-oE-jL7" secondAttribute="bottom" constant="3" id="lXg-va-cfq"/>
                             <constraint firstItem="qVZ-mV-cir" firstAttribute="top" secondItem="WFK-XW-M9M" secondAttribute="bottom" id="oXk-Lo-FoI"/>
                             <constraint firstItem="WFK-XW-M9M" firstAttribute="leading" secondItem="VMR-gJ-xJF" secondAttribute="leadingMargin" constant="-20" id="s7Z-mC-4j8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WFK-XW-M9M" secondAttribute="trailing" constant="-20" id="wpg-r7-bUk"/>
@@ -177,27 +175,27 @@
                                     <segue destination="9pv-A4-QxB" kind="showDetail" identifier="backMain" id="Uxp-Jz-Kli"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Download Progress:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pek-1A-tj9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Download Progress:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pek-1A-tj9">
                                 <rect key="frame" x="63" y="31" width="140" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Dui-1Z-83V">
-                                <rect key="frame" x="430" y="55" width="150" height="2"/>
+                                <rect key="frame" x="63" y="55" width="150" height="2"/>
                             </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Dui-1Z-83V" firstAttribute="top" secondItem="53g-MZ-15p" secondAttribute="bottom" constant="35" id="5B0-3X-95e"/>
                             <constraint firstItem="LDO-nx-6CP" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-20" id="Fea-I7-xaY"/>
                             <constraint firstItem="81T-c6-7NL" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-20" id="Hzk-Cm-Son"/>
+                            <constraint firstItem="Dui-1Z-83V" firstAttribute="top" secondItem="pek-1A-tj9" secondAttribute="bottom" constant="3" id="Tfm-yb-idI"/>
                             <constraint firstItem="81T-c6-7NL" firstAttribute="top" secondItem="LDO-nx-6CP" secondAttribute="bottom" id="cAN-Vm-Kcn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LDO-nx-6CP" secondAttribute="trailing" constant="-20" id="d4T-v2-I6j"/>
                             <constraint firstAttribute="trailingMargin" secondItem="81T-c6-7NL" secondAttribute="trailing" constant="-20" id="e8U-xx-rx3"/>
                             <constraint firstItem="LDO-nx-6CP" firstAttribute="top" secondItem="0VQ-fy-Hoy" secondAttribute="bottom" id="gm6-Ug-I78"/>
-                            <constraint firstItem="Dui-1Z-83V" firstAttribute="trailing" secondItem="wbK-Hg-hcf" secondAttribute="trailingMargin" id="ndf-56-GUO"/>
                             <constraint firstItem="Zqw-nf-lTp" firstAttribute="top" secondItem="81T-c6-7NL" secondAttribute="bottom" id="oFN-jW-oUX"/>
+                            <constraint firstItem="Dui-1Z-83V" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="43" id="vok-x9-F0b"/>
                         </constraints>
                     </view>
                     <connections>
@@ -324,6 +322,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tbi-gM-t9P"/>
+        <segue reference="Uxp-Jz-Kli"/>
     </inferredMetricsTieBreakers>
 </document>
