@@ -21,6 +21,7 @@
     BOOL _repeatSong;
     BOOL _shuffleSong;
     UIColor *_defaultButtonColor;
+    NSString *_currentSong;
 }
 @end
 
@@ -182,6 +183,8 @@
         _current = indexPath.row;
         NSLog(@"Current: %d",_current);
         
+        _currentSong = [cell.textLabel.text stringByDeletingPathExtension];
+        
         STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
         
         [_audioPlayer setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
@@ -199,8 +202,6 @@
         
         NSString *musDirPath = [documentsDirPath stringByAppendingString:[NSString stringWithFormat: @"/music/%@",cell.textLabel.text]];
         
-        [self playNextSong];
-        
         NSError *error;
         BOOL success = [[NSFileManager defaultManager] removeItemAtPath:musDirPath error:&error];
         if (success) {
@@ -210,6 +211,9 @@
         else
         {
             NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
+        }
+        if (indexPath.row == _current) {
+            [self playNextSong];
         }
         [_myMusic removeObjectAtIndex:indexPath.row];
         [_myTable reloadData];
@@ -250,6 +254,11 @@
     
     if (_audioPlayer.duration) {
         // there is a song playing
+        NSMutableDictionary *albumInfo = [[NSMutableDictionary alloc] init];
+        [albumInfo setObject:_currentSong forKey:MPMediaItemPropertyTitle];
+        [albumInfo setObject:[NSString stringWithFormat:@"%f",_audioPlayer.duration] forKey:MPMediaItemPropertyPlaybackDuration];
+        [albumInfo setObject:[NSString stringWithFormat:@"%f",_audioPlayer.progress] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
+        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:albumInfo];
         _songOver = YES;
     }
     else{
@@ -267,6 +276,8 @@
     _current++;
     if (_current >= _myMusic.count) _current = 0;
     NSLog(@"Current in playNext: %ld",(long)_current);
+    
+    _currentSong = [[_myMusic objectAtIndex:_current] stringByDeletingPathExtension];
     
     NSString *musDirPath = [documentsDirPath stringByAppendingString:[NSString stringWithFormat: @"/music/%@",[_myMusic objectAtIndex:_current]]];
     NSURL* url = [NSURL fileURLWithPath:musDirPath];
