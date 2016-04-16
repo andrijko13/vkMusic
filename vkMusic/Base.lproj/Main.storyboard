@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9pv-A4-QxB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9pv-A4-QxB">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzr-Lh-4qj">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzr-Lh-4qj">
                                 <rect key="frame" x="127" y="271" width="82" height="30"/>
                                 <state key="normal" title="Go to Music"/>
                                 <connections>
@@ -25,21 +25,14 @@
                                     <segue destination="6XA-Ym-a0x" kind="showDetail" identifier="showMusic" id="S2y-0e-HRN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEb-Ts-VGz">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEb-Ts-VGz">
                                 <rect key="frame" x="138" y="199" width="61" height="30"/>
                                 <state key="normal" title="Go to VK"/>
                                 <connections>
-                                    <action selector="vkClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="IHD-4d-k4w"/>
+                                    <action selector="vkClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Fuz-kT-Q8k"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hiU-HF-PVU">
-                                <rect key="frame" x="89" y="59" width="158" height="30"/>
-                                <state key="normal" title="Get New Access Token"/>
-                                <connections>
-                                    <action selector="authorize:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Aja-6U-T8K"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EP-OK-MPg">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EP-OK-MPg">
                                 <rect key="frame" x="122" y="126" width="93" height="30"/>
                                 <state key="normal" title="Search Music"/>
                                 <connections>
@@ -47,8 +40,28 @@
                                     <segue destination="sIL-Bg-lIL" kind="showDetail" identifier="searchMusic" id="ATE-BB-TiI"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3on-Ic-Ak8">
+                                <rect key="frame" x="149" y="59" width="38" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hiU-HF-PVU">
+                                        <rect key="frame" x="0.0" y="0.0" width="38" height="30"/>
+                                        <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="authorize:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Aja-6U-T8K"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5EP-OK-MPg" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="122" id="Oxp-sm-TfN"/>
+                            <constraint firstItem="3on-Ic-Ak8" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="bGE-ab-vjT"/>
+                            <constraint firstItem="cEb-Ts-VGz" firstAttribute="centerX" secondItem="uzr-Lh-4qj" secondAttribute="centerX" id="d00-PK-96h"/>
+                            <constraint firstItem="uzr-Lh-4qj" firstAttribute="top" secondItem="cEb-Ts-VGz" secondAttribute="bottom" constant="42" id="dWE-sq-9l5"/>
+                            <constraint firstItem="5EP-OK-MPg" firstAttribute="centerX" secondItem="cEb-Ts-VGz" secondAttribute="centerX" id="hdG-Qj-ROG"/>
+                            <constraint firstItem="cEb-Ts-VGz" firstAttribute="top" secondItem="5EP-OK-MPg" secondAttribute="bottom" constant="43" id="k0V-TS-IO2"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
@@ -155,7 +168,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ftQ-go-p6G" id="E3Q-vf-oHK">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -232,7 +245,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Pw-RS-lhG" id="mSi-42-eff">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
