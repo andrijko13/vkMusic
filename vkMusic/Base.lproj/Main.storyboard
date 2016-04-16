@@ -17,14 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzr-Lh-4qj">
-                                <rect key="frame" x="127" y="271" width="82" height="30"/>
-                                <state key="normal" title="Go to Music"/>
-                                <connections>
-                                    <action selector="_musButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="CrV-hY-Db2"/>
-                                    <segue destination="6XA-Ym-a0x" kind="showDetail" identifier="showMusic" id="S2y-0e-HRN"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEb-Ts-VGz">
                                 <rect key="frame" x="138" y="199" width="61" height="30"/>
                                 <state key="normal" title="Go to VK"/>
@@ -52,6 +44,14 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzr-Lh-4qj">
+                                <rect key="frame" x="135" y="271" width="66" height="30"/>
+                                <state key="normal" title="My Music"/>
+                                <connections>
+                                    <action selector="_musButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="CrV-hY-Db2"/>
+                                    <segue destination="6XA-Ym-a0x" kind="showDetail" identifier="showMusic" id="S2y-0e-HRN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
