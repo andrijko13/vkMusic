@@ -27,40 +27,27 @@
                                     <action selector="authorize:" destination="9pv-A4-QxB" eventType="touchUpInside" id="K3S-1o-5dB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzr-Lh-4qj">
-                                <rect key="frame" x="20" y="233" width="560" height="65"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzr-Lh-4qj">
+                                <rect key="frame" x="20" y="310.5" width="560" height="65"/>
                                 <state key="normal" title="My Music"/>
                                 <connections>
                                     <action selector="_musButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="CrV-hY-Db2"/>
                                     <segue destination="6XA-Ym-a0x" kind="showDetail" identifier="showMusic" id="S2y-0e-HRN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EP-OK-MPg">
-                                <rect key="frame" x="20" y="77" width="600" height="65"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EP-OK-MPg">
+                                <rect key="frame" x="20" y="153.5" width="600" height="65"/>
                                 <state key="normal" title="Search Music"/>
                                 <connections>
                                     <action selector="_searchButton:" destination="9pv-A4-QxB" eventType="touchUpInside" id="s4Z-B8-Sa1"/>
                                     <segue destination="sIL-Bg-lIL" kind="showDetail" identifier="searchMusic" id="ATE-BB-TiI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEb-Ts-VGz">
-                                <rect key="frame" x="20" y="155" width="560" height="65"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEb-Ts-VGz">
+                                <rect key="frame" x="20" y="232.5" width="560" height="65"/>
                                 <state key="normal" title="My VK Library"/>
                                 <connections>
                                     <action selector="vkClicked:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Fuz-kT-Q8k"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hiU-HF-PVU">
-                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
-                                <color key="backgroundColor" red="1" green="0.71733757062146875" blue="0.32119526836158191" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="68" id="qhc-Jc-JIk"/>
-                                </constraints>
-                                <state key="normal" title="Login to get started">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="authorize:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Aja-6U-T8K"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUj-ci-o59">
@@ -73,17 +60,21 @@
                                     <navigationItem title="vkMusic" id="Ofz-z3-mAj"/>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hiU-HF-PVU">
+                                <rect key="frame" x="20" y="80" width="599" height="65.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Login to get started">
+                                    <color key="titleColor" red="1" green="0.71733757060000003" blue="0.32119526840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="authorize:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Aja-6U-T8K"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hiU-HF-PVU" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="93h-TO-FcD"/>
-                            <constraint firstItem="uzr-Lh-4qj" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="FWX-GQ-zfZ"/>
-                            <constraint firstItem="cEb-Ts-VGz" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="J2A-aq-RjB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="YUj-ci-o59" secondAttribute="trailing" constant="-20" id="XZp-4U-sLj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hiU-HF-PVU" secondAttribute="trailing" constant="-20" id="aoR-rD-Sa2"/>
-                            <constraint firstItem="YUj-ci-o59" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="jBl-1G-6oi"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="hiU-HF-PVU" secondAttribute="bottom" id="kFB-M2-eOH"/>
-                            <constraint firstItem="5EP-OK-MPg" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="sek-wO-Ffg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YUj-ci-o59" secondAttribute="trailing" constant="-20" id="ACZ-kZ-FLt"/>
+                            <constraint firstItem="YUj-ci-o59" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="FeZ-bH-BqZ"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
@@ -159,7 +150,7 @@
                             </searchBar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfM-Ut-bGk">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <color key="backgroundColor" red="0.28627450980000002" green="0.54117647059999996" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.50196078430000002" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <barButtonItem title="Download Progress" id="8ch-XT-Ndz">
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -172,6 +163,7 @@
                                         <color key="tintColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </barButtonItem>
                                 </items>
+                                <color key="tintColor" red="0.2666666667" green="0.40784313729999999" blue="0.83137254900000002" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.33333333333333331" green="0.50196078431372548" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1e-p0-TPX">
@@ -184,11 +176,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="VfM-Ut-bGk" firstAttribute="leading" secondItem="VMR-gJ-xJF" secondAttribute="leadingMargin" constant="-20" id="9dV-oA-XX6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VfM-Ut-bGk" secondAttribute="trailing" constant="-20" id="ADQ-eB-u12"/>
                             <constraint firstItem="WFK-XW-M9M" firstAttribute="top" secondItem="LO0-00-1nx" secondAttribute="bottom" id="F5S-ER-JIp"/>
                             <constraint firstItem="LO0-00-1nx" firstAttribute="leading" secondItem="VMR-gJ-xJF" secondAttribute="leadingMargin" constant="-20" id="HLG-VE-sSI"/>
                             <constraint firstItem="VfM-Ut-bGk" firstAttribute="top" secondItem="qVZ-mV-cir" secondAttribute="bottom" id="JzO-tJ-iQY"/>
                             <constraint firstItem="WFK-XW-M9M" firstAttribute="leading" secondItem="VMR-gJ-xJF" secondAttribute="leadingMargin" constant="-20" id="MLQ-fC-efT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WFK-XW-M9M" secondAttribute="trailing" constant="-20" id="MT6-ks-Xay"/>
+                            <constraint firstItem="kpV-Mp-1tj" firstAttribute="top" secondItem="VfM-Ut-bGk" secondAttribute="bottom" id="N1T-Sj-zcT"/>
                             <constraint firstItem="qVZ-mV-cir" firstAttribute="top" secondItem="WFK-XW-M9M" secondAttribute="bottom" id="Pja-RQ-a7B"/>
                             <constraint firstItem="kpV-Mp-1tj" firstAttribute="top" secondItem="VfM-Ut-bGk" secondAttribute="bottom" id="QzC-u4-BzF"/>
                             <constraint firstItem="VfM-Ut-bGk" firstAttribute="leading" secondItem="VMR-gJ-xJF" secondAttribute="leadingMargin" constant="-20" id="Z8G-Il-A2j"/>
@@ -250,22 +245,6 @@
                                     <outlet property="delegate" destination="VKx-NV-ocn" id="QXp-xD-qDQ"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2R-mm-wy2">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <color key="backgroundColor" red="0.28627450980000002" green="0.54117647059999996" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <barButtonItem title="Download Progress" style="plain" id="Hc7-aI-TwO">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" id="GXt-EN-z0H">
-                                        <progressView key="customView" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="ard-rM-pl4">
-                                            <rect key="frame" x="179" y="21" width="392" height="2"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </progressView>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" red="0.33333333333333331" green="0.50196078431372548" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
-                            </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n59-mi-xxF">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="29"/>
                                 <color key="backgroundColor" red="0.33333333333333331" green="0.50196078431372548" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
@@ -304,16 +283,36 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2R-mm-wy2">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.50196078430000002" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <barButtonItem title="Download Progress" style="plain" id="Hc7-aI-TwO">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="GXt-EN-z0H">
+                                        <progressView key="customView" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="ard-rM-pl4">
+                                            <rect key="frame" x="179" y="21" width="392" height="2"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </progressView>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" red="0.2666666667" green="0.40784313729999999" blue="0.83137254900000002" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.33333333333333331" green="0.50196078431372548" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="O2R-mm-wy2" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-20" id="2Mo-jG-mhJ"/>
                             <constraint firstItem="Kdn-3H-iQS" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-20" id="5np-7h-Vip"/>
                             <constraint firstItem="LDO-nx-6CP" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-20" id="5oH-PB-JKF"/>
+                            <constraint firstItem="Zqw-nf-lTp" firstAttribute="top" secondItem="O2R-mm-wy2" secondAttribute="bottom" id="AYK-cY-0nU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="O2R-mm-wy2" secondAttribute="trailing" constant="-20" id="JHb-nr-dW5"/>
                             <constraint firstItem="O2R-mm-wy2" firstAttribute="bottom" secondItem="wbK-Hg-hcf" secondAttribute="bottomMargin" id="ONp-Px-Q6T"/>
+                            <constraint firstItem="O2R-mm-wy2" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-20" id="Olz-uf-3fB"/>
                             <constraint firstItem="81T-c6-7NL" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-20" id="Rx7-m4-K4a"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Kdn-3H-iQS" secondAttribute="trailing" constant="-20" id="Udh-rr-pjB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="O2R-mm-wy2" secondAttribute="trailing" constant="-20" id="V7g-k6-nUM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="LDO-nx-6CP" secondAttribute="trailing" constant="-20" id="YDR-1x-lDs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="O2R-mm-wy2" secondAttribute="trailing" constant="-20" id="a7L-s8-gEv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="O2R-mm-wy2" secondAttribute="trailing" constant="-20" id="bAM-Ab-oBB"/>
@@ -435,9 +434,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbH-5u-2Vl">
+                                <rect key="frame" x="0.0" y="51" width="600" height="21"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.50196078430000002" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X41-LI-NAQ">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <color key="backgroundColor" red="0.28627450980000002" green="0.54117647059999996" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.50196078430000002" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ZMp-hD-3zb"/>
                                     <constraint firstAttribute="width" constant="600" id="y1f-rz-4Vt"/>
@@ -456,20 +462,17 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="tintColor" red="0.2666666667" green="0.40784313729999999" blue="0.83137254900000002" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.33333333333333331" green="0.50196078431372548" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbH-5u-2Vl">
-                                <rect key="frame" x="0.0" y="51" width="600" height="21"/>
-                                <color key="backgroundColor" red="0.33333333329999998" green="0.50196078430000002" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="X41-LI-NAQ" secondAttribute="trailing" constant="-20" id="0El-AH-nvC"/>
+                            <constraint firstItem="Dgd-Zb-L1z" firstAttribute="top" secondItem="X41-LI-NAQ" secondAttribute="bottom" id="2WV-7b-S3j"/>
                             <constraint firstItem="X41-LI-NAQ" firstAttribute="top" secondItem="TAW-pQ-4NR" secondAttribute="bottom" id="94T-gz-O3f"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9y2-Ev-pwv" secondAttribute="trailing" constant="-20" id="9hC-lI-wBL"/>
+                            <constraint firstItem="X41-LI-NAQ" firstAttribute="leading" secondItem="oQg-iW-TRP" secondAttribute="leadingMargin" constant="-20" id="9yN-E8-k4f"/>
                             <constraint firstItem="9y2-Ev-pwv" firstAttribute="top" secondItem="ha6-lk-ds6" secondAttribute="bottom" id="MaO-lX-7eU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TAW-pQ-4NR" secondAttribute="trailing" constant="-20" id="UdI-M6-qlg"/>
                             <constraint firstItem="ha6-lk-ds6" firstAttribute="top" secondItem="2f8-tb-O77" secondAttribute="bottom" id="X5h-UZ-6ij"/>
@@ -504,6 +507,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pEY-SR-MzB"/>
+        <segue reference="eap-Zs-UCJ"/>
     </inferredMetricsTieBreakers>
 </document>
