@@ -186,6 +186,6 @@
 }
 
 - (IBAction)_backButton:(id)sender {
-    [self performSegueWithIdentifier:@"backMain" sender:self];
+    [self performSegueWithIdentifier:@"_backButton" sender:self];
 }
 @end

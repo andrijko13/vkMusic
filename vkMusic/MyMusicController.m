@@ -22,6 +22,9 @@
     BOOL _shuffleSong;
     UIColor *_defaultButtonColor;
     NSString *_currentSong;
+    
+    UIButton *_repeatBut;
+    UIButton *_shuffleBut;
 }
 @end
 
@@ -100,7 +103,7 @@
     _repeatSong = NO;
     _shuffleSong = NO;
     
-    _defaultButtonColor = [_repeatButton titleColorForState:UIControlStateNormal];
+    _defaultButtonColor = [_repeatBut titleColorForState:UIControlStateNormal];
     
     MPRemoteCommandCenter *commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
     commandCenter.playCommand.enabled = TRUE;
@@ -324,7 +327,7 @@
 */
 
 - (IBAction)_backButton:(id)sender {
-    [self performSegueWithIdentifier:@"backMain" sender:self];
+    [self performSegueWithIdentifier:@"_backButton" sender:self];
 }
 
 - (IBAction)editClicked:(id)sender {
@@ -341,8 +344,8 @@
 
 - (IBAction)repeatClicked:(id)sender {
     _repeatSong = !_repeatSong;
-    if (_repeatSong) [_repeatButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
-    else [_repeatButton setTitleColor:_defaultButtonColor forState:UIControlStateNormal];
+    if (_repeatSong) {[_repeatBut setTitleColor:[UIColor greenColor] forState:UIControlStateNormal]; [_repeatButton setCustomView:_repeatBut];}
+    else {[_repeatBut setTitleColor:_defaultButtonColor forState:UIControlStateNormal]; [_repeatButton setCustomView:_repeatBut];}
 }
 
 - (IBAction)shuffleButton:(id)sender {

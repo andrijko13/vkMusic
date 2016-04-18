@@ -12,6 +12,7 @@
 #import "STKAudioPlayer.h"
 #import "MyMusicController.h"
 
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 {
     BOOL _isAudioPlayerActive;
