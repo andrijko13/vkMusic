@@ -198,37 +198,22 @@
 }
 
 -(void)pauseClicked{
-    if (_audioPlayer.state == STKAudioPlayerStatePlaying){
-        [_audioPlayer pause];
-        _songStopped = YES;
-    }
-    if (_audioPlayer.state == STKAudioPlayerStatePaused) {
-        [_audioPlayer resume];
-        _songStopped = NO;
-    }
-    if (_audioPlayer.state == STKAudioPlayerStateStopped) {
-        _current = arc4random() % [_myMusic count];
-        [self playNextSong];
-    }
+    [_audioPlayer pause];
 }
+
 -(void)playClicked{
-    if (_audioPlayer.state == STKAudioPlayerStatePaused) {
-        [_audioPlayer resume];
-        _songStopped = YES;
-    }
-    if (_audioPlayer.state == STKAudioPlayerStatePlaying){
-        [_audioPlayer pause];
-        _songStopped = NO;
-    }
     if (_audioPlayer.state == STKAudioPlayerStateStopped) {
         _current = arc4random() % [_myMusic count];
         [self playNextSong];
     }
+    else [_audioPlayer resume];
 }
+
 -(void)handleNext{
     if (!_repeatSong) {if (_shuffleSong) _current = arc4random() % [_myMusic count];}
     [self playNextSong];
 }
+
 -(void)handlePrev{
     // what we do here is set back _current 2 songs, and play the next one to give the effect of playing previous
     _current-=2;
