@@ -16,6 +16,8 @@
     NSString *_fileName;
     NSMutableData *_receivedData;
     long long _expectedBytes;
+    
+    NSURLConnection *_connection;
 }
 @end
 
@@ -137,13 +139,13 @@
     NSLog(@"Downloading Started");
     NSURL  *url = [NSURL URLWithString:urlToDownload];
     //NSData *urlData = [NSData dataWithContentsOfURL:url];
+    _connection = nil;
     
-    NSURLRequest *theRequest = [NSURLRequest requestWithURL:url         cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
+    NSURLRequest *theRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
+    _receivedData = nil;
     _receivedData = [[NSMutableData alloc] initWithLength:0];
-    NSURLConnection * connection __unused = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self     startImmediately:YES];
+    _connection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self     startImmediately:YES];
 }
-
-
 
 - (void) connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     NSLog(@"Received response from connection");
@@ -178,7 +180,8 @@
     
     //NSString *documentsDirectory = [paths objectAtIndex:0];
     //NSString *pdfPath = [documentsDirectory stringByAppendingPathComponent:[currentURL stringByAppendingString:@".mp3"]];
-    NSLog(@"Succeeded! Received %d bytes of data",[_receivedData length]);
+    NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[_receivedData length]);
+    _connection = nil;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [_receivedData writeToFile:_fileName atomically:YES];
     _progress.hidden = YES;

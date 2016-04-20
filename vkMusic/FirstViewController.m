@@ -20,6 +20,7 @@ static NSArray  *SCOPE = nil;
 
 @implementation FirstViewController
 @synthesize _vkButton;
+@synthesize _loginButton;
 
 -(IBAction)vkClicked:(id)sender{
     [self performSegueWithIdentifier:@"DoingView" sender:self];
@@ -47,9 +48,17 @@ static NSArray  *SCOPE = nil;
     [[VKSdk instance] setUiDelegate:self];
     [VKSdk wakeUpSession:SCOPE completeBlock:^(VKAuthorizationState state, NSError *error) {
         if (state == VKAuthorizationAuthorized) {
+            [_loginButton setTitle:@"Logged In" forState:UIControlStateNormal];
+            [_loginButton setTitleColor:[UIColor colorWithRed:0.0f/255.0f green:210.0f/255.0f blue:118.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
             [self startWorking];
         } else if (error) {
-            [[[UIAlertView alloc] initWithTitle:nil message:[error description] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+            [[[UIAlertView alloc] initWithTitle:nil message:@"Your connection appears to be offline. Network services disabled." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+            [_loginButton setTitleColor:[UIColor colorWithRed:255.0f/255.0f green:183.0f/255.0f blue:82.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+            //[_loginButton setTitle:@"Log in to get started" forState:UIControlStateNormal];
+        }
+        else {
+            [_loginButton setTitleColor:[UIColor colorWithRed:255.0f/255.0f green:183.0f/255.0f blue:82.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+            [_loginButton setTitle:@"Log in to get started" forState:UIControlStateNormal];
         }
     }];
 }
@@ -103,13 +112,18 @@ static NSArray  *SCOPE = nil;
 - (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
     if (result.token) {
         [self startWorking];
+        [_loginButton setTitle:@"Logged In" forState:UIControlStateNormal];
+        [_loginButton setTitleColor:[UIColor colorWithRed:0.0f/255.0f green:210.0f/255.0f blue:118.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
     } else if (result.error) {
-        [[[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"Access denied\n%@", result.error] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+//        result.error = result.error;
+        [_loginButton setTitle:@"Log in to get started" forState:UIControlStateNormal];
+        [_loginButton setTitleColor:[UIColor colorWithRed:255.0f/255.0f green:183.0f/255.0f blue:82.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+        [[[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"Authorization Failed"] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     }
 }
 
 - (void)vkSdkUserAuthorizationFailed {
-    [[[UIAlertView alloc] initWithTitle:nil message:@"Access denied" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+    [[[UIAlertView alloc] initWithTitle:nil message:@"Access Denied" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

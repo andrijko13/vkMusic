@@ -15,6 +15,7 @@
 - (IBAction)_musButton:(id)sender;
 - (IBAction)_searchButton:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *_loginButton;
 
 @end
 

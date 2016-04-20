@@ -61,10 +61,10 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hiU-HF-PVU">
-                                <rect key="frame" x="20" y="80" width="599" height="66"/>
+                                <rect key="frame" x="20" y="80" width="560" height="66"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Login to get started">
-                                    <color key="titleColor" red="1" green="0.71733757060000003" blue="0.32119526840000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.82242476851851853" blue="0.46264467592592595" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="authorize:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Aja-6U-T8K"/>
@@ -80,6 +80,7 @@
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="_loginButton" destination="hiU-HF-PVU" id="HrU-T6-obf"/>
                         <outlet property="_vkButton" destination="cEb-Ts-VGz" id="wuF-vc-EEf"/>
                         <outlet property="vkButton" destination="cEb-Ts-VGz" id="LIw-hr-VnG"/>
                         <segue destination="VKx-NV-ocn" kind="showDetail" identifier="DoingView" id="utm-Z7-tt0"/>
@@ -101,7 +102,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LO0-00-1nx">
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LO0-00-1nx">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <color key="barTintColor" red="0.33333333333333331" green="0.50196078431372548" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
@@ -124,7 +125,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qVZ-mV-cir">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qVZ-mV-cir">
                                 <rect key="frame" x="0.0" y="107" width="600" height="449"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -132,14 +133,14 @@
                                     <outlet property="delegate" destination="VMR-gJ-xJF" id="wD4-Ku-0G3"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Izl-JE-Z95">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Izl-JE-Z95">
                                 <rect key="frame" x="0.0" y="-1" width="600" height="33"/>
                                 <color key="backgroundColor" red="0.33333333333333331" green="0.50196078431372548" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar opaque="NO" contentMode="redraw" text="" placeholder="Search Music" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFK-XW-M9M">
+                            <searchBar opaque="NO" contentMode="redraw" ambiguous="YES" misplaced="YES" text="" placeholder="Search Music" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFK-XW-M9M">
                                 <rect key="frame" x="0.0" y="63" width="600" height="44"/>
                                 <color key="barTintColor" red="0.33333333333333331" green="0.50196078431372548" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -151,18 +152,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfM-Ut-bGk">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <color key="backgroundColor" red="0.33333333329999998" green="0.50196078430000002" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <barButtonItem title="Download Progress" id="8ch-XT-Ndz">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" id="0Kq-gw-3kx">
-                                        <progressView key="customView" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="ucI-Qs-Myb">
-                                            <rect key="frame" x="179" y="21" width="398" height="2"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </progressView>
-                                        <color key="tintColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </barButtonItem>
-                                </items>
+                                <items/>
                                 <color key="tintColor" red="0.2666666667" green="0.40784313729999999" blue="0.83137254900000002" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.33333333333333331" green="0.50196078431372548" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
@@ -173,32 +163,45 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BxW-kY-GI2">
+                                <rect key="frame" x="150" y="577" width="420" height="2"/>
+                            </progressView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iv9-XH-fd7">
+                                <rect key="frame" x="20" y="567" width="105" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VfM-Ut-bGk" firstAttribute="leading" secondItem="VMR-gJ-xJF" secondAttribute="leadingMargin" constant="-20" id="9dV-oA-XX6"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="VfM-Ut-bGk" secondAttribute="trailing" constant="-20" id="ADQ-eB-u12"/>
-                            <constraint firstItem="WFK-XW-M9M" firstAttribute="top" secondItem="LO0-00-1nx" secondAttribute="bottom" id="F5S-ER-JIp"/>
-                            <constraint firstItem="LO0-00-1nx" firstAttribute="leading" secondItem="VMR-gJ-xJF" secondAttribute="leadingMargin" constant="-20" id="HLG-VE-sSI"/>
-                            <constraint firstItem="VfM-Ut-bGk" firstAttribute="top" secondItem="qVZ-mV-cir" secondAttribute="bottom" id="JzO-tJ-iQY"/>
-                            <constraint firstItem="WFK-XW-M9M" firstAttribute="leading" secondItem="VMR-gJ-xJF" secondAttribute="leadingMargin" constant="-20" id="MLQ-fC-efT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="WFK-XW-M9M" secondAttribute="trailing" constant="-20" id="MT6-ks-Xay"/>
-                            <constraint firstItem="kpV-Mp-1tj" firstAttribute="top" secondItem="VfM-Ut-bGk" secondAttribute="bottom" id="N1T-Sj-zcT"/>
-                            <constraint firstItem="qVZ-mV-cir" firstAttribute="top" secondItem="WFK-XW-M9M" secondAttribute="bottom" id="Pja-RQ-a7B"/>
-                            <constraint firstItem="kpV-Mp-1tj" firstAttribute="top" secondItem="VfM-Ut-bGk" secondAttribute="bottom" id="QzC-u4-BzF"/>
-                            <constraint firstItem="VfM-Ut-bGk" firstAttribute="leading" secondItem="VMR-gJ-xJF" secondAttribute="leadingMargin" constant="-20" id="Z8G-Il-A2j"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LO0-00-1nx" secondAttribute="trailing" constant="-20" id="ZxV-fi-stI"/>
-                            <constraint firstItem="LO0-00-1nx" firstAttribute="top" secondItem="VMR-gJ-xJF" secondAttribute="topMargin" constant="19" id="cb7-eH-1jV"/>
-                            <constraint firstItem="qVZ-mV-cir" firstAttribute="leading" secondItem="VMR-gJ-xJF" secondAttribute="leadingMargin" constant="-20" id="kKV-py-nRl"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qVZ-mV-cir" secondAttribute="trailing" constant="-20" id="rBh-fJ-scB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="VfM-Ut-bGk" secondAttribute="trailing" constant="-20" id="seP-mq-IY7"/>
+                            <constraint firstItem="Iv9-XH-fd7" firstAttribute="leading" secondItem="VMR-gJ-xJF" secondAttribute="leadingMargin" id="3Bo-IH-rul"/>
+                            <constraint firstItem="VfM-Ut-bGk" firstAttribute="leading" secondItem="VMR-gJ-xJF" secondAttribute="leadingMargin" constant="-20" id="7fw-0H-a0l"/>
+                            <constraint firstItem="BxW-kY-GI2" firstAttribute="leading" secondItem="VMR-gJ-xJF" secondAttribute="leadingMargin" constant="130" id="BXz-Hu-Myj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BxW-kY-GI2" secondAttribute="trailing" constant="10" id="Ch9-qS-RtG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qVZ-mV-cir" secondAttribute="trailing" constant="-20" id="FPz-bi-VCu"/>
+                            <constraint firstItem="kpV-Mp-1tj" firstAttribute="top" secondItem="BxW-kY-GI2" secondAttribute="bottom" constant="21" id="FVQ-9x-FdW"/>
+                            <constraint firstItem="VfM-Ut-bGk" firstAttribute="top" secondItem="qVZ-mV-cir" secondAttribute="bottom" id="NWf-eQ-rTJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VfM-Ut-bGk" secondAttribute="trailing" constant="-20" id="T19-yC-WXc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WFK-XW-M9M" secondAttribute="trailing" constant="-20" id="TCz-RW-6uC"/>
+                            <constraint firstItem="LO0-00-1nx" firstAttribute="leading" secondItem="VMR-gJ-xJF" secondAttribute="leadingMargin" constant="-20" id="Yvn-KR-tJA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LO0-00-1nx" secondAttribute="trailing" constant="-20" id="bQw-tC-b20"/>
+                            <constraint firstItem="LO0-00-1nx" firstAttribute="top" secondItem="DGu-MP-8Yt" secondAttribute="bottom" id="e9y-kg-JkF"/>
+                            <constraint firstItem="VfM-Ut-bGk" firstAttribute="top" secondItem="qVZ-mV-cir" secondAttribute="bottom" id="h9q-fm-9Os"/>
+                            <constraint firstItem="WFK-XW-M9M" firstAttribute="leading" secondItem="VMR-gJ-xJF" secondAttribute="leadingMargin" constant="-20" id="kLH-a1-B82"/>
+                            <constraint firstItem="kpV-Mp-1tj" firstAttribute="top" secondItem="VfM-Ut-bGk" secondAttribute="bottom" id="mR8-1X-uWP"/>
+                            <constraint firstItem="WFK-XW-M9M" firstAttribute="top" secondItem="Izl-JE-Z95" secondAttribute="bottom" constant="31" id="nK0-Xu-aVM"/>
+                            <constraint firstItem="qVZ-mV-cir" firstAttribute="top" secondItem="WFK-XW-M9M" secondAttribute="bottom" id="nWD-78-mrW"/>
+                            <constraint firstItem="qVZ-mV-cir" firstAttribute="leading" secondItem="VMR-gJ-xJF" secondAttribute="leadingMargin" constant="-20" id="p57-A8-bzk"/>
+                            <constraint firstItem="kpV-Mp-1tj" firstAttribute="top" secondItem="Iv9-XH-fd7" secondAttribute="bottom" constant="12" id="s1i-7E-fjt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="LAL-7V-wGL"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="_downloadLabel" destination="Iv9-XH-fd7" id="TRO-7V-Tbk"/>
                         <outlet property="_musicTable" destination="qVZ-mV-cir" id="Wia-67-ntB"/>
-                        <outlet property="_progress" destination="ucI-Qs-Myb" id="CJ2-1K-lGr"/>
+                        <outlet property="_progress" destination="BxW-kY-GI2" id="hbD-M8-lsh"/>
                         <outlet property="_searchBar" destination="WFK-XW-M9M" id="gQ9-wR-pbG"/>
                         <segue destination="9pv-A4-QxB" kind="presentation" identifier="_backButton" id="eap-Zs-UCJ"/>
                     </connections>
@@ -219,13 +222,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDO-nx-6CP">
+                            <searchBar contentMode="redraw" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDO-nx-6CP">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <color key="barTintColor" red="0.33333333333333331" green="0.50196078431372548" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="81T-c6-7NL">
-                                <rect key="frame" x="0.0" y="108" width="600" height="305"/>
+                                <rect key="frame" x="0.0" y="108" width="600" height="450"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.078431375324726105" green="0.094117656350135803" blue="0.7882353663444519" alpha="1" colorSpace="deviceRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
@@ -252,7 +255,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdn-3H-iQS">
+                            <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdn-3H-iQS">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <color key="barTintColor" red="0.33333333333333331" green="0.50196078431372548" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
@@ -286,47 +289,46 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O2R-mm-wy2">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <color key="backgroundColor" red="0.33333333329999998" green="0.50196078430000002" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <barButtonItem title="Download Progress" style="plain" id="Hc7-aI-TwO">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" id="GXt-EN-z0H">
-                                        <progressView key="customView" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="ard-rM-pl4">
-                                            <rect key="frame" x="179" y="21" width="392" height="2"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </progressView>
-                                    </barButtonItem>
-                                </items>
+                                <items/>
                                 <color key="tintColor" red="0.2666666667" green="0.40784313729999999" blue="0.83137254900000002" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.33333333333333331" green="0.50196078431372548" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Downloading:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6HN-y4-OCW">
+                                <rect key="frame" x="10" y="566" width="105" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CLL-Kf-S7J">
+                                <rect key="frame" x="140" y="576" width="420" height="2"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="O2R-mm-wy2" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-20" id="2Mo-jG-mhJ"/>
-                            <constraint firstItem="Kdn-3H-iQS" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-20" id="5np-7h-Vip"/>
-                            <constraint firstItem="LDO-nx-6CP" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-20" id="5oH-PB-JKF"/>
-                            <constraint firstItem="Zqw-nf-lTp" firstAttribute="top" secondItem="O2R-mm-wy2" secondAttribute="bottom" id="AYK-cY-0nU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="O2R-mm-wy2" secondAttribute="trailing" constant="-20" id="JHb-nr-dW5"/>
-                            <constraint firstItem="O2R-mm-wy2" firstAttribute="bottom" secondItem="wbK-Hg-hcf" secondAttribute="bottomMargin" id="ONp-Px-Q6T"/>
-                            <constraint firstItem="O2R-mm-wy2" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-20" id="Olz-uf-3fB"/>
-                            <constraint firstItem="81T-c6-7NL" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-20" id="Rx7-m4-K4a"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Kdn-3H-iQS" secondAttribute="trailing" constant="-20" id="Udh-rr-pjB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="O2R-mm-wy2" secondAttribute="trailing" constant="-20" id="V7g-k6-nUM"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LDO-nx-6CP" secondAttribute="trailing" constant="-20" id="YDR-1x-lDs"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="O2R-mm-wy2" secondAttribute="trailing" constant="-20" id="a7L-s8-gEv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="O2R-mm-wy2" secondAttribute="trailing" constant="-20" id="bAM-Ab-oBB"/>
-                            <constraint firstItem="O2R-mm-wy2" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="20" id="cOg-Pv-Gfu"/>
-                            <constraint firstItem="Zqw-nf-lTp" firstAttribute="top" secondItem="81T-c6-7NL" secondAttribute="bottom" constant="44" id="ckS-Cm-IzI"/>
-                            <constraint firstItem="81T-c6-7NL" firstAttribute="top" secondItem="Kdn-3H-iQS" secondAttribute="bottom" constant="44" id="oWg-Gf-4GQ"/>
-                            <constraint firstItem="O2R-mm-wy2" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-20" id="sr2-Ev-9Rr"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="81T-c6-7NL" secondAttribute="trailing" constant="-20" id="ywV-lw-aUg"/>
+                            <constraint firstItem="81T-c6-7NL" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-20" id="3RQ-9o-Sgm"/>
+                            <constraint firstItem="81T-c6-7NL" firstAttribute="top" secondItem="LDO-nx-6CP" secondAttribute="bottom" id="BEY-6z-BYe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CLL-Kf-S7J" secondAttribute="trailing" constant="20" id="Hwc-sO-Tmh"/>
+                            <constraint firstItem="O2R-mm-wy2" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-20" id="Imb-Ba-geG"/>
+                            <constraint firstItem="Kdn-3H-iQS" firstAttribute="top" secondItem="53g-MZ-15p" secondAttribute="bottom" id="Lyc-6n-abb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="81T-c6-7NL" secondAttribute="trailing" constant="-20" id="Vnc-NX-7CG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Kdn-3H-iQS" secondAttribute="trailing" constant="-20" id="VtJ-t6-85c"/>
+                            <constraint firstItem="6HN-y4-OCW" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-10" id="amu-uK-h9j"/>
+                            <constraint firstItem="Zqw-nf-lTp" firstAttribute="top" secondItem="CLL-Kf-S7J" secondAttribute="bottom" constant="22" id="bfV-lq-wWF"/>
+                            <constraint firstItem="Zqw-nf-lTp" firstAttribute="top" secondItem="6HN-y4-OCW" secondAttribute="bottom" constant="13" id="biP-Sr-3lJ"/>
+                            <constraint firstItem="Kdn-3H-iQS" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-20" id="gnP-cN-o9V"/>
+                            <constraint firstItem="LDO-nx-6CP" firstAttribute="top" secondItem="Kdn-3H-iQS" secondAttribute="bottom" id="nC8-qL-IT8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="LDO-nx-6CP" secondAttribute="trailing" constant="-20" id="nTu-0Q-87B"/>
+                            <constraint firstItem="CLL-Kf-S7J" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="120" id="pZP-Y7-Gpg"/>
+                            <constraint firstItem="Zqw-nf-lTp" firstAttribute="top" secondItem="O2R-mm-wy2" secondAttribute="bottom" id="wyU-cr-AL3"/>
+                            <constraint firstItem="LDO-nx-6CP" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-20" id="xTx-wH-Kx3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="O2R-mm-wy2" secondAttribute="trailing" constant="-20" id="xU5-zl-Ncb"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="_downloadLabel" destination="6HN-y4-OCW" id="VeN-fp-fFm"/>
                         <outlet property="_musicTable" destination="81T-c6-7NL" id="O4K-5u-hXa"/>
-                        <outlet property="_progress" destination="ard-rM-pl4" id="uM4-dv-8fZ"/>
+                        <outlet property="_progress" destination="CLL-Kf-S7J" id="q9P-lu-IMy"/>
                         <segue destination="9pv-A4-QxB" kind="presentation" identifier="backMain" id="pEY-SR-MzB"/>
                     </connections>
                 </viewController>
@@ -409,9 +411,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TAW-pQ-4NR">
                                 <rect key="frame" x="0.0" y="108" width="600" height="448"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="600" id="xso-vF-GeK"/>
-                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyReuseIdentifier" id="1Pw-RS-lhG">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
@@ -444,49 +443,48 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X41-LI-NAQ">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <color key="backgroundColor" red="0.33333333329999998" green="0.50196078430000002" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="ZMp-hD-3zb"/>
-                                    <constraint firstAttribute="width" constant="600" id="y1f-rz-4Vt"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem title="Shuffle" id="9t5-9O-LCT">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="shuffleButton:" destination="6XA-Ym-a0x" id="6Ze-eH-uea"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Repeat" id="NMT-BE-3L7">
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <action selector="repeatClicked:" destination="6XA-Ym-a0x" id="0t3-Qf-9Po"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
+                                <items/>
                                 <color key="tintColor" red="0.2666666667" green="0.40784313729999999" blue="0.83137254900000002" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.33333333333333331" green="0.50196078431372548" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSN-wj-Rl6">
+                                <rect key="frame" x="20" y="563" width="102" height="30"/>
+                                <state key="normal" title="Toggle Shuffle">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="shuffleButton:" destination="6XA-Ym-a0x" eventType="touchUpInside" id="z62-DI-MaN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6r-g4-3mk">
+                                <rect key="frame" x="140" y="563" width="102" height="30"/>
+                                <state key="normal" title="Toggle Repeat">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="repeatClicked:" destination="6XA-Ym-a0x" eventType="touchUpInside" id="ZUn-31-YR5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="X41-LI-NAQ" secondAttribute="trailing" constant="-20" id="0El-AH-nvC"/>
-                            <constraint firstItem="Dgd-Zb-L1z" firstAttribute="top" secondItem="X41-LI-NAQ" secondAttribute="bottom" id="2WV-7b-S3j"/>
-                            <constraint firstItem="X41-LI-NAQ" firstAttribute="top" secondItem="TAW-pQ-4NR" secondAttribute="bottom" id="94T-gz-O3f"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9y2-Ev-pwv" secondAttribute="trailing" constant="-20" id="9hC-lI-wBL"/>
-                            <constraint firstItem="X41-LI-NAQ" firstAttribute="leading" secondItem="oQg-iW-TRP" secondAttribute="leadingMargin" constant="-20" id="9yN-E8-k4f"/>
-                            <constraint firstItem="9y2-Ev-pwv" firstAttribute="top" secondItem="ha6-lk-ds6" secondAttribute="bottom" id="MaO-lX-7eU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="TAW-pQ-4NR" secondAttribute="trailing" constant="-20" id="UdI-M6-qlg"/>
-                            <constraint firstItem="ha6-lk-ds6" firstAttribute="top" secondItem="2f8-tb-O77" secondAttribute="bottom" id="X5h-UZ-6ij"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="X41-LI-NAQ" secondAttribute="trailing" constant="-20" id="fT0-C3-wOP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="X41-LI-NAQ" secondAttribute="trailing" constant="-20" id="j1c-Fx-eWi"/>
-                            <constraint firstItem="X41-LI-NAQ" firstAttribute="leading" secondItem="oQg-iW-TRP" secondAttribute="leadingMargin" constant="-20" id="joc-y5-6kq"/>
-                            <constraint firstItem="X41-LI-NAQ" firstAttribute="top" secondItem="TAW-pQ-4NR" secondAttribute="bottom" id="nGm-WM-UkT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ha6-lk-ds6" secondAttribute="trailing" constant="-20" id="oe9-Qx-4ce"/>
-                            <constraint firstItem="9y2-Ev-pwv" firstAttribute="leading" secondItem="oQg-iW-TRP" secondAttribute="leadingMargin" constant="-20" id="ur3-Ln-Iwz"/>
-                            <constraint firstItem="TAW-pQ-4NR" firstAttribute="leading" secondItem="oQg-iW-TRP" secondAttribute="leadingMargin" constant="-20" id="v3a-LG-iF1"/>
-                            <constraint firstItem="TAW-pQ-4NR" firstAttribute="top" secondItem="9y2-Ev-pwv" secondAttribute="bottom" id="vYI-wU-twO"/>
-                            <constraint firstItem="X41-LI-NAQ" firstAttribute="leading" secondItem="oQg-iW-TRP" secondAttribute="leadingMargin" constant="-20" id="w61-bR-YlI"/>
-                            <constraint firstItem="ha6-lk-ds6" firstAttribute="leading" secondItem="oQg-iW-TRP" secondAttribute="leadingMargin" constant="-20" id="xnC-61-4W9"/>
-                            <constraint firstItem="Dgd-Zb-L1z" firstAttribute="top" secondItem="X41-LI-NAQ" secondAttribute="bottom" id="zcX-JD-xhF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9y2-Ev-pwv" secondAttribute="trailing" constant="-20" id="28g-A2-75J"/>
+                            <constraint firstItem="ha6-lk-ds6" firstAttribute="leading" secondItem="oQg-iW-TRP" secondAttribute="leadingMargin" constant="-20" id="2Hh-8s-DWf"/>
+                            <constraint firstItem="TAW-pQ-4NR" firstAttribute="top" secondItem="9y2-Ev-pwv" secondAttribute="bottom" id="5Wf-30-Kq4"/>
+                            <constraint firstItem="TAW-pQ-4NR" firstAttribute="leading" secondItem="oQg-iW-TRP" secondAttribute="leadingMargin" constant="-20" id="76j-Wq-RYD"/>
+                            <constraint firstItem="Dgd-Zb-L1z" firstAttribute="top" secondItem="X41-LI-NAQ" secondAttribute="bottom" id="90U-tY-mcX"/>
+                            <constraint firstItem="QSN-wj-Rl6" firstAttribute="leading" secondItem="oQg-iW-TRP" secondAttribute="leadingMargin" id="A2k-rc-bEy"/>
+                            <constraint firstItem="X41-LI-NAQ" firstAttribute="top" secondItem="TAW-pQ-4NR" secondAttribute="bottom" id="B0S-hs-L4p"/>
+                            <constraint firstItem="9y2-Ev-pwv" firstAttribute="top" secondItem="ha6-lk-ds6" secondAttribute="bottom" id="Bjc-O2-wCE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ha6-lk-ds6" secondAttribute="trailing" constant="-20" id="CVm-1Z-bwE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="X41-LI-NAQ" secondAttribute="trailing" constant="-20" id="DgK-cU-5GR"/>
+                            <constraint firstItem="Dgd-Zb-L1z" firstAttribute="top" secondItem="QSN-wj-Rl6" secondAttribute="bottom" constant="7" id="DxE-XL-pux"/>
+                            <constraint firstItem="ha6-lk-ds6" firstAttribute="top" secondItem="2f8-tb-O77" secondAttribute="bottom" id="I5N-bh-yTN"/>
+                            <constraint firstItem="Dgd-Zb-L1z" firstAttribute="top" secondItem="b6r-g4-3mk" secondAttribute="bottom" constant="7" id="IHd-pD-dax"/>
+                            <constraint firstItem="9y2-Ev-pwv" firstAttribute="leading" secondItem="oQg-iW-TRP" secondAttribute="leadingMargin" constant="-20" id="Nwa-AV-VVC"/>
+                            <constraint firstItem="X41-LI-NAQ" firstAttribute="leading" secondItem="oQg-iW-TRP" secondAttribute="leadingMargin" constant="-20" id="STn-BO-iq5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TAW-pQ-4NR" secondAttribute="trailing" constant="-20" id="s6H-lD-QFt"/>
+                            <constraint firstItem="b6r-g4-3mk" firstAttribute="leading" secondItem="QSN-wj-Rl6" secondAttribute="trailing" constant="18" id="sQ5-Vt-OD0"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -494,6 +492,8 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="_myTable" destination="TAW-pQ-4NR" id="cts-xc-JKv"/>
+                        <outlet property="_repeatButton" destination="b6r-g4-3mk" id="SLi-M4-9vb"/>
+                        <outlet property="_shuffleButton" destination="QSN-wj-Rl6" id="fme-Gf-o4l"/>
                         <segue destination="Jyv-dP-NHV" kind="presentation" id="sOk-8Q-YUF"/>
                         <segue destination="9pv-A4-QxB" kind="presentation" identifier="_backButton" id="nSC-e2-NI1"/>
                     </connections>
@@ -507,6 +507,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eap-Zs-UCJ"/>
+        <segue reference="nSC-e2-NI1"/>
     </inferredMetricsTieBreakers>
 </document>

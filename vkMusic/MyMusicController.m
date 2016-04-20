@@ -64,6 +64,8 @@
     _myTable.delegate = self;           // Set up the delegate's for the tableView
     _myTable.dataSource = self;
     
+    _defaultButtonColor = _shuffleButton.currentTitleColor; // set it to white color
+    
     [self._delegate sayHi];             // Test method to see if delegate works
     
     [super viewDidLoad];

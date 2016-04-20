@@ -119,9 +119,13 @@
 }
 -(void) setRepeat:(BOOL)shouldRepeat{
     _repeatSong = shouldRepeat;
+    if (_repeatSong) NSLog(@"Repeat On");
+    else NSLog(@"Repeat Off");
 }
 -(void) setShuffle:(BOOL)shouldShuffle{
     _shuffleSong = shouldShuffle;
+    if (_shuffleSong) NSLog(@"Shuffle On");
+    else NSLog(@"Shuffle Off");
 }
 
 -(void)tick{
