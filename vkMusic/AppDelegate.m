@@ -102,14 +102,30 @@
 }
 
 -(void)playFromFile:(NSURL *)url title:(NSString *)title current:(NSInteger)current controller:(MyMusicController *)audioPlayerView{
+    
+    MPRemoteCommandCenter *commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
+    commandCenter.playCommand.enabled = TRUE;
+    commandCenter.pauseCommand.enabled = TRUE;
+    commandCenter.nextTrackCommand.enabled = TRUE;
+    commandCenter.previousTrackCommand.enabled = TRUE;
+    
     STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
     [_audioPlayer setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
     _current = current;
     _currentSong = title;
 }
 
--(void)playFromHTTP:(MyMusicController *)audioPlayerView{
+-(void)playFromHTTP:(NSURL *)url title:(NSString *)title controller:(MyMusicController *)audioPlayerView{
     
+    MPRemoteCommandCenter *commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
+    commandCenter.playCommand.enabled = TRUE;
+    commandCenter.pauseCommand.enabled = TRUE;
+    commandCenter.nextTrackCommand.enabled = FALSE;
+    commandCenter.previousTrackCommand.enabled = FALSE;
+    
+    STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
+    
+    [audioPlayer setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
 }
 
 -(void) checkCurrent:(NSInteger)current{  // current is the index of the current song in the music array. If there is a conflict, we play next song (i.e. after deletion)

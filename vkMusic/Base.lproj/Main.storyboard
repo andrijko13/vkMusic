@@ -227,19 +227,55 @@
                                 <color key="barTintColor" red="0.33333333333333331" green="0.50196078431372548" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="81T-c6-7NL">
-                                <rect key="frame" x="0.0" y="108" width="600" height="450"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="81T-c6-7NL">
+                                <rect key="frame" x="0.0" y="108" width="600" height="448"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.078431375324726105" green="0.094117656350135803" blue="0.7882353663444519" alpha="1" colorSpace="deviceRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyReuseIdentifier" id="ftQ-go-p6G">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyReuseIdentifier" id="ftQ-go-p6G" customClass="TableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ftQ-go-p6G" id="E3Q-vf-oHK">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tg4-Eb-fEK">
+                                                    <rect key="frame" x="8" y="11" width="512" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="350" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnE-Dg-vpy">
+                                                    <rect key="frame" x="539" y="5" width="53" height="34"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="53" id="L3Q-Jd-1YJ"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Try"/>
+                                                    <connections>
+                                                        <action selector="_buttonClicked:" destination="ftQ-go-p6G" eventType="touchUpInside" id="FO8-49-UpP"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="QnE-Dg-vpy" firstAttribute="top" secondItem="E3Q-vf-oHK" secondAttribute="topMargin" constant="-3" id="77y-Xx-uvP"/>
+                                                <constraint firstItem="Tg4-Eb-fEK" firstAttribute="leading" secondItem="E3Q-vf-oHK" secondAttribute="leadingMargin" id="7RB-lH-SdP"/>
+                                                <constraint firstItem="Tg4-Eb-fEK" firstAttribute="centerY" secondItem="E3Q-vf-oHK" secondAttribute="centerY" id="GO2-T7-8Dp"/>
+                                                <constraint firstItem="QnE-Dg-vpy" firstAttribute="trailing" secondItem="E3Q-vf-oHK" secondAttribute="trailingMargin" id="PVO-Vv-ph2"/>
+                                                <constraint firstItem="Tg4-Eb-fEK" firstAttribute="top" secondItem="E3Q-vf-oHK" secondAttribute="topMargin" constant="3" id="WF9-Tn-Pnf"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="QnE-Dg-vpy" secondAttribute="trailing" constant="-1" id="mh3-69-ebS"/>
+                                                <constraint firstItem="QnE-Dg-vpy" firstAttribute="leading" secondItem="Tg4-Eb-fEK" secondAttribute="trailing" constant="19" id="naQ-8L-oJR"/>
+                                                <constraint firstItem="Tg4-Eb-fEK" firstAttribute="centerY" secondItem="QnE-Dg-vpy" secondAttribute="centerY" id="vQr-dB-TCd"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="mh3-69-ebS"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="_title" destination="Tg4-Eb-fEK" id="tkd-f4-Top"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -322,6 +358,7 @@
                             <constraint firstItem="Zqw-nf-lTp" firstAttribute="top" secondItem="O2R-mm-wy2" secondAttribute="bottom" id="wyU-cr-AL3"/>
                             <constraint firstItem="LDO-nx-6CP" firstAttribute="leading" secondItem="wbK-Hg-hcf" secondAttribute="leadingMargin" constant="-20" id="xTx-wH-Kx3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="O2R-mm-wy2" secondAttribute="trailing" constant="-20" id="xU5-zl-Ncb"/>
+                            <constraint firstItem="O2R-mm-wy2" firstAttribute="top" secondItem="81T-c6-7NL" secondAttribute="bottom" id="zOj-Cc-yaB"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -507,6 +544,6 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nSC-e2-NI1"/>
+        <segue reference="pEY-SR-MzB"/>
     </inferredMetricsTieBreakers>
 </document>

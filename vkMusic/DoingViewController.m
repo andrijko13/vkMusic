@@ -7,6 +7,7 @@
 //
 
 #import "DoingViewController.h"
+#import "TableViewCell.h"
 
 @interface DoingViewController (){
     NSMutableArray *_vkmusic;
@@ -65,12 +66,17 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *MyIdentifier = @"MyReuseIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
+        cell = [[TableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
     }
+    
     VKAudio *song = [_vkmusic objectAtIndex:indexPath.row];
-    cell.textLabel.text = song.title;
+    [cell._title setText:[NSString stringWithFormat:@"%@",song.title]];
+    NSString *url = [self parseMp3:song];
+    cell._url = url;
+    
+//    cell.textLabel.text = song.title;
     return cell;
 }
 

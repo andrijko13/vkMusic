@@ -6,6 +6,8 @@
 //  Copyright © 2016 DropGeeks. All rights reserved.
 //
 
+// TODO: Set color based on what the Delegate has set for shuffle and repeat
+
 #import "MyMusicController.h"
 #import "SampleQueueId.h"
 #import <MediaPlayer/MediaPlayer.h>
