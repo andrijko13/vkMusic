@@ -16,7 +16,8 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *_searchBar;
 @property (weak, nonatomic) IBOutlet UILabel *_downloadLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *_progress;
-- (IBAction)backMain:(id)sender;
+- (IBAction)_backButton:(id)sender;
+
 
 @end
 

@@ -185,7 +185,7 @@
     _downloadLabel.hidden = YES;
 }
 
-- (IBAction)backMain:(id)sender {
-    [self performSegueWithIdentifier:@"backMain" sender:self];
+- (IBAction)_backButton:(id)sender {
+    [self performSegueWithIdentifier:@"_backButton" sender:self];
 }
 @end

@@ -18,4 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *_downloadLabel;
 @property (weak, nonatomic) IBOutlet UIProgressView *_progress;
 - (IBAction)backMainButton:(id)sender;
+//@property (weak, nonatomic) IBOutlet UIBarButtonItem *_downloadLabel2;
+
 @end

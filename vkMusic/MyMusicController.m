@@ -20,6 +20,9 @@
     BOOL _shuffleSong;
     UIColor *_defaultButtonColor;
     NSString *_currentSong;
+    
+    UIButton *_repeatBut;
+    UIButton *_shuffleBut;
 }
 @end
 
@@ -161,7 +164,7 @@
 */
 
 - (IBAction)_backButton:(id)sender {
-    [self performSegueWithIdentifier:@"backMain" sender:self];
+    [self performSegueWithIdentifier:@"_backButton" sender:self];
 }
 
 - (IBAction)editClicked:(id)sender {
