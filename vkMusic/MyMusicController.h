@@ -10,19 +10,30 @@
 #import "SoundManager.h"
 #import "STKAudioPlayer.h"
 
+@class MyMusicController;
+
+@protocol VKMusicPlayer<NSObject>
+-(void) playFromHTTP:(MyMusicController*)audioPlayerView;
+-(void) playFromFile:(NSURL *)url title:(NSString *)title current:(NSInteger)current controller:(MyMusicController*)audioPlayerView;
+-(void) checkCurrent:(NSInteger)current;  // current is the index of the current song in the music array. If there is a conflict, we play next song (i.e. after deletion)
+-(void) setRepeat:(BOOL)shouldRepeat;
+-(void) setShuffle:(BOOL)shouldShuffle;
+-(void) sayHi;
+-(NSMutableArray *) getMusicArray;
+@end
+
 @interface MyMusicController : UIViewController <UITableViewDelegate, UITableViewDataSource, STKAudioPlayerDelegate>
 {
     NSMutableArray *_myMusic;
-    STKAudioPlayer *_audioPlayer;
-    NSTimer *_timer;
     BOOL _isEditing;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *_myTable;
 @property NSMutableArray *_myMusic;
-@property (strong) NSTimer *_timer;
 @property (weak, nonatomic) IBOutlet UIButton *_repeatButton;
 @property (weak, nonatomic) IBOutlet UIButton *_shuffleButton;
+
+@property (readwrite, unsafe_unretained) id<VKMusicPlayer> _delegate;
 
 - (IBAction)_backButton:(id)sender;
 - (IBAction)shuffleButton:(id)sender;

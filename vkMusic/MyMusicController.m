@@ -9,15 +9,13 @@
 #import "MyMusicController.h"
 #import "SampleQueueId.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import "AppDelegate.h"
 
 @interface MyMusicController ()
 {
     NSInteger _current;
     NSInteger _max;
-    BOOL _songOver;
-    BOOL _songStopped;
-    BOOL _nextTrackClicked;
-    BOOL _shouldTick;
+    
     BOOL _repeatSong;
     BOOL _shuffleSong;
     UIColor *_defaultButtonColor;
@@ -28,111 +26,49 @@
 @implementation MyMusicController
 @synthesize _myTable;
 @synthesize _myMusic;
-@synthesize _timer;
 @synthesize _repeatButton;
 @synthesize _shuffleButton;
+@synthesize _delegate;
+
+-(void)audioPlayer:(STKAudioPlayer *)audioPlayer stateChanged:(STKAudioPlayerState)state previousState:(STKAudioPlayerState)previousState{
+    
+}
+
+-(void)audioPlayer:(STKAudioPlayer *)audioPlayer didStartPlayingQueueItemId:(NSObject *)queueItemId{
+    
+}
+
+-(void)audioPlayer:(STKAudioPlayer *)audioPlayer didFinishPlayingQueueItemId:(NSObject *)queueItemId withReason:(STKAudioPlayerStopReason)stopReason andProgress:(double)progress andDuration:(double)duration{
+    
+}
+
+-(void)audioPlayer:(STKAudioPlayer *)audioPlayer didFinishBufferingSourceWithQueueItemId:(NSObject *)queueItemId{
+    
+}
+
+-(void)audioPlayer:(STKAudioPlayer *)audioPlayer unexpectedError:(STKAudioPlayerErrorCode)errorCode{
+    
+}
 
 -(BOOL)canBecomeFirstResponder{
     return YES;
 }
 
--(void)handlePauseButton{
-    if (_audioPlayer.state == STKAudioPlayerStatePlaying){
-        [_audioPlayer pause];
-        _songStopped = YES;
-    }
-    if (_audioPlayer.state == STKAudioPlayerStatePaused) {
-        [_audioPlayer resume];
-        _songStopped = NO;
-    }
-    if (_audioPlayer.state == STKAudioPlayerStateStopped) {
-        _current = arc4random() % [_myMusic count];
-        [self playNextSong];
-    }
-}
-
--(void)handlePlayButton{
-    if (_audioPlayer.state == STKAudioPlayerStatePaused) {
-        [_audioPlayer resume];
-        _songStopped = YES;
-    }
-    if (_audioPlayer.state == STKAudioPlayerStatePlaying){
-        [_audioPlayer pause];
-        _songStopped = NO;
-    }
-}
-
--(void)handleNextTrackButton{
-    if (!_repeatSong) {if (_shuffleSong) _current = arc4random() % [_myMusic count];}
-    [self playNextSong];
-}
-
--(void)handlePreviousTrackButton{
-    // what we do here is set back _current 2 songs, and play the next one to give the effect of playing previous
-    _current-=2;
-    if (_audioPlayer.state == STKAudioPlayerStatePlaying){
-        if (_audioPlayer.progress > 2.5) _current++; // if we are > 2.5 seconds into song, play current song again (rewind)
-    }
-    if (_current < 0) {
-        _current += _myMusic.count;
-    }
-    [self playNextSong];
-}
-
 - (void)viewDidLoad {
     
-    NSError *error;
+    self._delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate]; // We make our delegate property the AppDelegate instance
     
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
-    [self becomeFirstResponder];
-    
-    _audioPlayer = [[STKAudioPlayer alloc] initWithOptions:(STKAudioPlayerOptions){ .flushQueueOnSeek = YES, .enableVolumeMixer = NO, .equalizerBandFrequencies = {50, 100, 200, 400, 800, 1600, 2600, 16000} }];
-    _audioPlayer.meteringEnabled = YES;
-    _audioPlayer.volume = 1;
-    _max = 0;
-    _songOver = NO;
-    _songStopped = NO;
-    _nextTrackClicked = NO;
-    _shouldTick = YES;
-    
-    _isEditing = NO;
-    _repeatSong = NO;
-    _shuffleSong = NO;
-    
-    _defaultButtonColor = [_repeatButton titleColorForState:UIControlStateNormal];
-    
-    MPRemoteCommandCenter *commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
-    commandCenter.playCommand.enabled = TRUE;
-    commandCenter.pauseCommand.enabled = TRUE;
-    commandCenter.nextTrackCommand.enabled = TRUE;
-    commandCenter.previousTrackCommand.enabled = TRUE;
-    [[commandCenter playCommand] addTarget:self action:@selector(handlePauseButton)];
-    [[commandCenter pauseCommand] addTarget:self action:@selector(handlePlayButton)];
-    [[commandCenter nextTrackCommand] addTarget:self action:@selector(handleNextTrackButton)];
-    [[commandCenter previousTrackCommand] addTarget:self action:@selector(handlePreviousTrackButton)];
-    
-    _myMusic = [NSMutableArray arrayWithCapacity:50];
-    _myTable.delegate = self;
+    _myTable.delegate = self;           // Set up the delegate's for the tableView
     _myTable.dataSource = self;
     
-    _audioPlayer = [[STKAudioPlayer alloc] init];
-    [self setupTimer];
+    [self._delegate sayHi];             // Test method to see if delegate works
     
     [super viewDidLoad];
     
-    [self lookThroughFiles];
-    
+    _myMusic = [self._delegate getMusicArray]; // Get the music array so we can update our table
     [_myTable reloadData];
     
     // Do any additional setup after loading the view
-}
-
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    // End receiving events
-    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
-    [self resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -149,10 +85,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    _myMusic = [self._delegate getMusicArray];
+    NSLog(@"");
     return [_myMusic count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    _myMusic = [self._delegate getMusicArray];
     static NSString *MyIdentifier = @"MyReuseIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
@@ -162,13 +101,10 @@
     return cell;
 }
 
-/*-(void)playSong:(NSString *)songUrl{
-    NSLog(@"Trying to play %@", songUrl);
-    [_audioPlayer play:songUrl];
-}*/
-
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    _myMusic = [self._delegate getMusicArray];
+    
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (cell.selectionStyle != UITableViewCellSelectionStyleNone) {
         //(your code opening a new view)
@@ -180,20 +116,14 @@
         
         NSURL* url = [NSURL fileURLWithPath:musDirPath];
         
-        _current = indexPath.row;
-        NSLog(@"Current: %d",_current);
-        
-        _currentSong = [cell.textLabel.text stringByDeletingPathExtension];
-        
-        STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
-        
-        [_audioPlayer setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
+        [self._delegate playFromFile:url title:[cell.textLabel.text stringByDeletingPathExtension] current:indexPath.row controller:self];
         
         [_myTable reloadData];
     }
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    _myMusic = [self._delegate getMusicArray];
     if (editingStyle == UITableViewCellEditingStyleDelete){
         
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -205,116 +135,23 @@
         NSError *error;
         BOOL success = [[NSFileManager defaultManager] removeItemAtPath:musDirPath error:&error];
         if (success) {
-            NSLog(@"Deleted song %@", musDirPath
-                  );
+            NSLog(@"Deleted song %@", musDirPath);
         }
         else
         {
             NSLog(@"Could not delete file -:%@ ",[error localizedDescription]);
         }
-        if (indexPath.row == _current) {
-            [self playNextSong];
-        }
-        [_myMusic removeObjectAtIndex:indexPath.row];
+        [self._delegate checkCurrent:indexPath.row];
+
+        [_myMusic removeObjectAtIndex:indexPath.row]; // might need to do this in delegate
         [_myTable reloadData];
     }
     
 }
 
--(void)tick{
-    if (!_audioPlayer) return;
-    
-    //NSLog(@"tick");
-    
-    switch (_audioPlayer.state) {
-        case STKAudioPlayerStatePlaying:
-            // do stuff while playing
-            _songOver = YES;
-            _songStopped = NO;
-            break;
-            
-        case STKAudioPlayerStateBuffering:
-            // do stuff while buffering
-            _songStopped = YES;
-            break;
-            
-        case STKAudioPlayerStatePaused:
-            // do stuff while paused
-            _songStopped = YES;
-            break;
-            
-        case STKAudioPlayerStateStopped:
-            // do stuff when stopped
-            //_songOver = NO;
-            break;
-            
-        default:
-            break;
-    }
-    
-    if (_audioPlayer.duration) {
-        // there is a song playing
-        NSMutableDictionary *albumInfo = [[NSMutableDictionary alloc] init];
-        [albumInfo setObject:_currentSong forKey:MPMediaItemPropertyTitle];
-        [albumInfo setObject:[NSString stringWithFormat:@"%f",_audioPlayer.duration] forKey:MPMediaItemPropertyPlaybackDuration];
-        [albumInfo setObject:[NSString stringWithFormat:@"%f",_audioPlayer.progress] forKey:MPNowPlayingInfoPropertyElapsedPlaybackTime];
-        [[MPNowPlayingInfoCenter defaultCenter] setNowPlayingInfo:albumInfo];
-        _songOver = YES;
-    }
-    else{
-        if (_songOver && !_songStopped) {
-            if (_repeatSong) _current--;
-            else if (_shuffleSong) _current = arc4random() % [_myMusic count];
-            [self playNextSong];
-        }
-    }
-}
-
--(void)playNextSong{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirPath = [paths objectAtIndex:0];
-    _current++;
-    if (_current >= _myMusic.count) _current = 0;
-    NSLog(@"Current in playNext: %ld",(long)_current);
-    
-    _currentSong = [[_myMusic objectAtIndex:_current] stringByDeletingPathExtension];
-    
-    NSString *musDirPath = [documentsDirPath stringByAppendingString:[NSString stringWithFormat: @"/music/%@",[_myMusic objectAtIndex:_current]]];
-    NSURL* url = [NSURL fileURLWithPath:musDirPath];
-    
-    STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
-    
-    [_audioPlayer setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
-}
-
--(void)setupTimer{
-    _timer = [NSTimer timerWithTimeInterval:0.01 target:self selector:@selector(tick) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
-}
-
--(void)lookThroughFiles{
-    NSError *error;
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirPath = [paths objectAtIndex:0];
-    
-    //NSLog(@"%@",[documentsDirPath stringByAppendingString:@"/music/"]);
-    
-    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[documentsDirPath stringByAppendingString:@"/music/"] error:&error];
-    if (files == nil) {
-        // error...
-        NSLog(@"ERROR!");
-    }
-    
-    for (NSString *file in files) {
-        if ([file.pathExtension compare:@"mp3" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
-            [_myMusic addObject:file];
-            _max++;
-        }
-    }
-}
+#pragma mark - Navigation
 
 /*
-#pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -341,13 +178,21 @@
 
 - (IBAction)repeatClicked:(id)sender {
     _repeatSong = !_repeatSong;
+    [self._delegate setRepeat:_repeatSong];
     if (_repeatSong) [_repeatButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     else [_repeatButton setTitleColor:_defaultButtonColor forState:UIControlStateNormal];
 }
 
 - (IBAction)shuffleButton:(id)sender {
     _shuffleSong = !_shuffleSong;
+    [self._delegate setShuffle:_shuffleSong];
     if (_shuffleSong) [_shuffleButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
     else [_shuffleButton setTitleColor:_defaultButtonColor forState:UIControlStateNormal];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+#pragma mark TODO
+    [self resignFirstResponder];
 }
 @end
