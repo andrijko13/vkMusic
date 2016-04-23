@@ -1,7 +1,7 @@
 # vkMusic
 [![vkMusicBuild](https://img.shields.io/badge/build-passing-brightgreen.svg)]()
 [![vkMusicStage](https://img.shields.io/badge/stage-beta-orange.svg)]()
-[![vkMusicVersion](https://img.shields.io/badge/release-v1.1.1-blue.svg)]()
+[![vkMusicVersion](https://img.shields.io/badge/release-v1.1.2-blue.svg)]()
 [![vkMusicVersion](https://img.shields.io/badge/license-BSD 3--clause revised-blue.svg)]()
 
 vkMusic is a piece of software that is intended to show one of the possible uses of the VK iOS API by downloading music onto the phone to be later replayed
