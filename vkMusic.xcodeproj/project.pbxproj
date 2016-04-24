@@ -32,6 +32,7 @@
 		32B2A70B1C8537EA00D3110B /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B2A70A1C8537DB00D3110B /* VKSdkFramework.framework */; };
 		32B2A70D1C854EBD00D3110B /* VKSdkFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32B2A70A1C8537DB00D3110B /* VKSdkFramework.framework */; };
 		32B2A70E1C854EBD00D3110B /* VKSdkFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 32B2A70A1C8537DB00D3110B /* VKSdkFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		32B48DEA1CC8050600BAD695 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B48DE91CC8050600BAD695 /* TableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,8 @@
 		32B2A5A91C7D288E00D3110B /* SampleQueueId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleQueueId.h; sourceTree = "<group>"; };
 		32B2A5AA1C7D288E00D3110B /* SampleQueueId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleQueueId.m; sourceTree = "<group>"; };
 		32B2A6FF1C8537DA00D3110B /* VK-ios-sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "VK-ios-sdk.xcodeproj"; path = "vk-ios-sdk/VK-ios-sdk.xcodeproj"; sourceTree = "<group>"; };
+		32B48DE81CC8050600BAD695 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		32B48DE91CC8050600BAD695 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +178,8 @@
 				32357BB61C7AE20900400B2F /* DoingViewController.m */,
 				32357BB91C7B9CCB00400B2F /* MyMusicController.h */,
 				32357BBA1C7B9CCB00400B2F /* MyMusicController.m */,
+				32B48DE81CC8050600BAD695 /* TableViewCell.h */,
+				32B48DE91CC8050600BAD695 /* TableViewCell.m */,
 				32357B2C1C7A934C00400B2F /* Supporting Files */,
 			);
 			path = vkMusic;
@@ -354,6 +359,7 @@
 				32B2A5851C7D104000D3110B /* STKAutoRecoveringHTTPDataSource.m in Sources */,
 				32B2A5861C7D104000D3110B /* STKCoreFoundationDataSource.m in Sources */,
 				32357BB71C7AE20900400B2F /* DoingViewController.m in Sources */,
+				32B48DEA1CC8050600BAD695 /* TableViewCell.m in Sources */,
 				32B2A5891C7D104000D3110B /* STKHTTPDataSource.m in Sources */,
 				32357BC31C7C52D000400B2F /* SoundManager.m in Sources */,
 				32B2A5841C7D104000D3110B /* STKAudioPlayer.m in Sources */,

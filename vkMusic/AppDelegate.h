@@ -13,8 +13,9 @@
 #import "MyMusicController.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "TableViewCell.h"
+#import "DoingViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, VKMusicPlayer, VKCellPlay>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, VKMusicPlayer, VKCellPlay, vkMusicDownloadDelegate>
 {
     BOOL _isAudioPlayerActive;
     STKAudioPlayer *_audioPlayer;

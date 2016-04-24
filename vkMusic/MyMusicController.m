@@ -68,6 +68,16 @@
     
     _defaultButtonColor = _shuffleButton.currentTitleColor; // set it to white color
     
+    if ([self._delegate getShuffle]){
+        _shuffleSong = TRUE;
+        [_shuffleButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    }
+    
+    if ([self._delegate getRepeat]){
+        _repeatSong = TRUE;
+        [_repeatButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+    }
+    
     [self._delegate sayHi];             // Test method to see if delegate works
     
     [super viewDidLoad];

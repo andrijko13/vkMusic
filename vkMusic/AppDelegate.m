@@ -78,6 +78,17 @@
     
     return YES;
 }
+-(void)fileDidDownload:(NSString *)file{
+    [_myMusic addObject:file];
+}
+
+-(BOOL)getRepeat{
+    return _repeatSong;
+}
+
+-(BOOL)getShuffle{
+    return _shuffleSong;
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -116,6 +127,19 @@
 }
 
 -(void)playFromHTTP:(NSURL *)url title:(NSString *)title controller:(MyMusicController *)audioPlayerView{
+    
+    MPRemoteCommandCenter *commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
+    commandCenter.playCommand.enabled = TRUE;
+    commandCenter.pauseCommand.enabled = TRUE;
+    commandCenter.nextTrackCommand.enabled = FALSE;
+    commandCenter.previousTrackCommand.enabled = FALSE;
+    
+    STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
+    
+    [audioPlayer setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
+}
+
+-(void)playFromHTTP:(NSURL *)url title:(NSString *)title cell:(TableViewCell *)cell{
     
     MPRemoteCommandCenter *commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
     commandCenter.playCommand.enabled = TRUE;

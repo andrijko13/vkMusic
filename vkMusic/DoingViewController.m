@@ -8,6 +8,7 @@
 
 #import "DoingViewController.h"
 #import "TableViewCell.h"
+#import "AppDelegate.h"
 
 @interface DoingViewController (){
     NSMutableArray *_vkmusic;
@@ -15,6 +16,8 @@
     NSMutableData *_receivedData;
     long long _expectedBytes;
     NSString *_fileName;
+    
+    NSString *_songTitle;
 }
 @end
 
@@ -22,6 +25,7 @@
 @synthesize _musicTable;
 @synthesize _progress;
 @synthesize _downloadLabel;
+@synthesize _delegate;
 
 #pragma mark view config
 
@@ -30,6 +34,8 @@
     _progress.hidden = YES;
     _downloadLabel.hidden = YES;
 
+    self._delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     [super viewDidLoad];
     _vkmusic = [[NSMutableArray alloc] initWithCapacity:30];
     // Do any additional setup after loading the view.
@@ -91,9 +97,10 @@
         NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString  *documentsDirectory = [paths objectAtIndex:0];
         
-        _fileName = [NSString stringWithFormat:@"%@/music/%@", documentsDirectory,[song.title stringByAppendingString:@".mp3"]];
+        _songTitle = [song.title stringByAppendingString:@".mp3"];
+        _fileName = [NSString stringWithFormat:@"%@/music/%@", documentsDirectory,_songTitle];
         
-        [self downloadFromURL:url name:[song.title stringByAppendingString:@".mp3"]];
+        [self downloadFromURL:url name:_songTitle];
     }
 }
 
@@ -200,6 +207,7 @@
     [_receivedData writeToFile:_fileName atomically:YES];
     _progress.hidden = YES;
     _downloadLabel.hidden = YES;
+    [self._delegate fileDidDownload:_songTitle];
 }
 
 /*

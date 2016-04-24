@@ -18,6 +18,8 @@
 -(void) checkCurrent:(NSInteger)current;  // current is the index of the current song in the music array. If there is a conflict, we play next song (i.e. after deletion)
 -(void) setRepeat:(BOOL)shouldRepeat;
 -(void) setShuffle:(BOOL)shouldShuffle;
+-(BOOL) getRepeat;
+-(BOOL) getShuffle;
 -(void) sayHi;
 -(NSMutableArray *) getMusicArray;
 @end
