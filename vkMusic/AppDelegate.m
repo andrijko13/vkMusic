@@ -82,6 +82,10 @@
     [_myMusic addObject:file];
 }
 
+-(void)fileDidDownload2:(NSString *)file{
+    [_myMusic addObject:file];
+}
+
 -(BOOL)getRepeat{
     return _repeatSong;
 }

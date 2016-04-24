@@ -7,6 +7,7 @@
 //
 
 #import "SecondViewController.h"
+#import "AppDelegate.h"
 
 #define NUMBER_OF_ITEMS_IN_ARRAY 200
 
@@ -17,6 +18,8 @@
     NSMutableData *_receivedData;
     long long _expectedBytes;
     
+    NSString *_songTitle;
+    
     NSURLConnection *_connection;
 }
 @end
@@ -26,6 +29,7 @@
 @synthesize _searchBar;
 @synthesize _downloadLabel;
 @synthesize _progress;
+@synthesize _delegate;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,6 +41,8 @@
     
     _progress.hidden = YES;
     _downloadLabel.hidden = YES;
+    
+    self._delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     _vkmusic = [[NSMutableArray alloc] initWithCapacity:NUMBER_OF_ITEMS_IN_ARRAY];
     // Do any additional setup after loading the view.
@@ -99,6 +105,7 @@
         NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString  *documentsDirectory = [paths objectAtIndex:0];
         
+        _songTitle = [song.title stringByAppendingString:@".mp3"];
         _fileName = [NSString stringWithFormat:@"%@/music/%@", documentsDirectory,[song.title stringByAppendingString:@".mp3"]];
         
         [self downloadFromURL:url name:[song.title stringByAppendingString:@".mp3"]];
@@ -184,6 +191,7 @@
     _connection = nil;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [_receivedData writeToFile:_fileName atomically:YES];
+    [self._delegate fileDidDownload2:_songTitle];
     _progress.hidden = YES;
     _downloadLabel.hidden = YES;
 }
