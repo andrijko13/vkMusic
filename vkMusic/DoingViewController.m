@@ -116,56 +116,13 @@
     return nil;
 }
 
--(void)download1{
-    NSString *stringURL = @"http://www.somewhere.com/thefile.png";
-    NSURL  *url = [NSURL URLWithString:stringURL];
-    NSData *urlData = [NSData dataWithContentsOfURL:url];
-    if ( urlData )
-    {
-        NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString  *documentsDirectory = [paths objectAtIndex:0];
-        
-        NSString  *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory,@"filename.png"];
-        [urlData writeToFile:filePath atomically:YES];
-    }
-}
-
 -(void)downloadFromURL:(NSString *)urlToDownload name:(NSString *)fileName{
     NSLog(@"Downloading Started");
     NSURL  *url = [NSURL URLWithString:urlToDownload];
-    //NSData *urlData = [NSData dataWithContentsOfURL:url];
     
     NSURLRequest *theRequest = [NSURLRequest requestWithURL:url         cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
     _receivedData = [[NSMutableData alloc] initWithLength:0];
     NSURLConnection * connection __unused = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self     startImmediately:YES];
-    
-    //download the file in a seperate thread.
-    /*(dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSLog(@"Downloading Started");
-        NSURL  *url = [NSURL URLWithString:urlToDownload];
-        //NSData *urlData = [NSData dataWithContentsOfURL:url];
-        
-        NSURLRequest *theRequest = [NSURLRequest requestWithURL:url         cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:60];
-        _receivedData = [[NSMutableData alloc] initWithLength:0];
-        NSURLConnection * connection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self     startImmediately:YES];*/
-        
-        /*if ( urlData )
-        {
-            NSArray       *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-            NSString  *documentsDirectory = [paths objectAtIndex:0];
-            
-            NSString  *filePath = [NSString stringWithFormat:@"%@/music/%@", documentsDirectory,fileName];
-            
-            //saving is done on main thread
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [urlData writeToFile:filePath atomically:YES];
-                NSLog(@"File Saved !");
-            });
-        }*/
-    //});
-    
-    
-    
 }
 
 

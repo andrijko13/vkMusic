@@ -83,15 +83,33 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
     static NSString *MyIdentifier = @"MyReuseIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
+        cell = [[TableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
     }
+    
     VKAudio *song = [_vkmusic objectAtIndex:indexPath.row];
-    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:13];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",song.artist, song.title];
+    [cell._title setText:[NSString stringWithFormat:@"%@ - %@",song.artist, song.title]];
+    NSString *url = [self parseMp3:song];
+    cell._url = url;
+    
+    //    cell.textLabel.text = song.title;
     return cell;
+    
+    
+    
+//    static NSString *MyIdentifier = @"MyReuseIdentifier";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault  reuseIdentifier:MyIdentifier];
+//    }
+//    VKAudio *song = [_vkmusic objectAtIndex:indexPath.row];
+//    cell.textLabel.font = [UIFont fontWithName:@"Helvetica" size:13];
+//    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",song.artist, song.title];
+//    return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

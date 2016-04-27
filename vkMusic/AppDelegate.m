@@ -45,7 +45,7 @@
     ////////////////////////////////////// Begin Player Setup ///////////////////////////////////////
     
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:&error];
-    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    // [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
     
     _audioPlayer = [[STKAudioPlayer alloc] initWithOptions:(STKAudioPlayerOptions){ .flushQueueOnSeek = YES, .enableVolumeMixer = NO, .equalizerBandFrequencies = {50, 100, 200, 400, 800, 1600, 2600, 16000} }];
     _audioPlayer.meteringEnabled = YES;
@@ -153,6 +153,8 @@
     commandCenter.nextTrackCommand.enabled = TRUE;
     commandCenter.previousTrackCommand.enabled = TRUE;
     
+    NSLog(@"File :%@", [url absoluteString]);
+    
     STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
     [_audioPlayer setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
     _current = current;
@@ -180,9 +182,12 @@
     commandCenter.nextTrackCommand.enabled = FALSE;
     commandCenter.previousTrackCommand.enabled = FALSE;
     
-    STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
     
-    [audioPlayer setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
+    STKDataSource *dataSource = [STKAudioPlayer dataSourceFromURL:url];
+    
+    [_audioPlayer setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
+    
+    _currentSong = title;
 }
 
 -(void) checkCurrent:(NSInteger)current{  // current is the index of the current song in the music array. If there is a conflict, we play next song (i.e. after deletion)
@@ -281,12 +286,6 @@
 
 -(void)playClicked{
     NSLog(@"Play");
-    if (_audioPlayer.state == STKAudioPlayerStateStopped) NSLog(@"stopped");
-    if (_audioPlayer.state == STKAudioPlayerStateError) NSLog(@"error");
-    if (_audioPlayer.state == STKAudioPlayerStateReady) NSLog(@"ready");
-    if (_audioPlayer.state == STKAudioPlayerStatePaused) NSLog(@"paused");
-    if (_audioPlayer.state == STKAudioPlayerStatePlaying) NSLog(@"playing");
-    if (_audioPlayer.state == STKAudioPlayerStateRunning) NSLog(@"runing");
     if (_audioPlayer.state == STKAudioPlayerStateStopped) {
         _current = arc4random() % [_myMusic count];
         [self playNextSong];
