@@ -12,6 +12,7 @@
 @interface AppDelegate ()
 {
     STKAudioPlayer *audioPlayer;
+    BOOL interruptStarted;
 }
 
 @end
@@ -19,6 +20,7 @@
 @implementation AppDelegate
 @synthesize _myMusic;
 @synthesize _timer;
+@synthesize _audioPlayer;
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     [VKSdk processOpenURL:url fromApplication:sourceApplication];
@@ -67,6 +69,8 @@
     [[commandCenter nextTrackCommand] addTarget:self action:@selector(handleNext)];
     [[commandCenter previousTrackCommand] addTarget:self action:@selector(handlePrev)];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(interruption:) name:AVAudioSessionInterruptionNotification object:nil];
+    
     _myMusic = [NSMutableArray arrayWithCapacity:50];
     
     [self lookThroughFiles];
@@ -78,6 +82,31 @@
     
     return YES;
 }
+     
+-(void)interruption:(NSNotification *)notification{
+    NSDictionary *interuptionDict = notification.userInfo;
+    NSInteger interuptionType = [[interuptionDict valueForKey:AVAudioSessionInterruptionTypeKey] integerValue];
+    
+    switch (interuptionType) {
+        case (AVAudioSessionInterruptionTypeBegan):
+            if (!(_audioPlayer.state == STKAudioPlayerStatePaused)){
+                [_audioPlayer  pause];
+                interruptStarted = YES;
+                
+            }
+            NSLog(@"Interruption started");
+            break;
+        case (AVAudioSessionInterruptionTypeEnded):
+            if ((_audioPlayer.state == STKAudioPlayerStatePaused) && interruptStarted){
+                [_audioPlayer resume];
+                interruptStarted = NO;
+            }
+            NSLog(@"Interruption ended");
+            break;
+    }
+}
+
+
 -(void)fileDidDownload:(NSString *)file{
     [_myMusic addObject:file];
 }
@@ -246,15 +275,27 @@
 }
 
 -(void)pauseClicked{
+    NSLog(@"Pause");
     [_audioPlayer pause];
 }
 
 -(void)playClicked{
+    NSLog(@"Play");
+    if (_audioPlayer.state == STKAudioPlayerStateStopped) NSLog(@"stopped");
+    if (_audioPlayer.state == STKAudioPlayerStateError) NSLog(@"error");
+    if (_audioPlayer.state == STKAudioPlayerStateReady) NSLog(@"ready");
+    if (_audioPlayer.state == STKAudioPlayerStatePaused) NSLog(@"paused");
+    if (_audioPlayer.state == STKAudioPlayerStatePlaying) NSLog(@"playing");
+    if (_audioPlayer.state == STKAudioPlayerStateRunning) NSLog(@"runing");
     if (_audioPlayer.state == STKAudioPlayerStateStopped) {
         _current = arc4random() % [_myMusic count];
         [self playNextSong];
     }
     else [_audioPlayer resume];
+}
+
+-(void)audioPlayer:(STKAudioPlayer *)audioPlayer stateChanged:(STKAudioPlayerState)state previousState:(STKAudioPlayerState)previousState{
+    NSLog(@"state changed");
 }
 
 -(void)handleNext{

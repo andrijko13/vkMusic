@@ -16,7 +16,7 @@
 #import "DoingViewController.h"
 #import "SecondViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, VKMusicPlayer, VKCellPlay, vkMusicDownloadDelegate, vkMusDownloadDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, STKAudioPlayerDelegate, VKMusicPlayer, VKCellPlay, vkMusicDownloadDelegate, vkMusDownloadDelegate>
 {
     BOOL _isAudioPlayerActive;
     STKAudioPlayer *_audioPlayer;
@@ -39,6 +39,7 @@
 @property (strong, nonatomic) UIWindow *window;
 @property NSMutableArray *_myMusic;
 @property (strong) NSTimer *_timer;
+@property (strong, retain) STKAudioPlayer *_audioPlayer;
 
 -(void)pauseClicked;
 -(void)playClicked;
