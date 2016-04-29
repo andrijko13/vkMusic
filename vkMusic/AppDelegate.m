@@ -247,7 +247,7 @@
     else{
         if (_songOver && !_songStopped) {
             if (_repeatSong) _current--;
-            else if (_shuffleSong) _current = arc4random() % [_myMusic count];
+            if (_shuffleSong) _current = arc4random() % [_myMusic count];
             [self playNextSong];
         }
     }
