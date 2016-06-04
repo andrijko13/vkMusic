@@ -21,8 +21,10 @@ static NSArray  *SCOPE = nil;
 @implementation FirstViewController
 @synthesize _vkButton;
 @synthesize _loginButton;
+@synthesize _delegate;
 
 -(IBAction)vkClicked:(id)sender{
+    [_delegate setFriend:0];
     [self performSegueWithIdentifier:@"DoingView" sender:self];
 }
 
@@ -39,6 +41,9 @@ static NSArray  *SCOPE = nil;
 }
 
 - (void)viewDidLoad {
+    
+    self._delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     SCOPE = @[VK_PER_FRIENDS, VK_PER_WALL, VK_PER_AUDIO, VK_PER_PHOTOS, VK_PER_EMAIL, VK_PER_MESSAGES];
     
     [self setupMusicFolder];

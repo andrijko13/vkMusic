@@ -15,8 +15,9 @@
 #import "TableViewCell.h"
 #import "DoingViewController.h"
 #import "SecondViewController.h"
+#import "FriendController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, STKAudioPlayerDelegate, VKMusicPlayer, VKCellPlay, vkMusicDownloadDelegate, vkMusDownloadDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, STKAudioPlayerDelegate, VKMusicPlayer, VKCellPlay, vkMusicDownloadDelegate, vkMusDownloadDelegate, FriendDelegate>
 {
     BOOL _isAudioPlayerActive;
     STKAudioPlayer *_audioPlayer;

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <VKSdkFramework/VKSdkFramework.h>
+#import "FriendController.h"
+#import "AppDelegate.h"
 
 @interface FirstViewController : UIViewController <VKSdkDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *_vkButton;
@@ -16,6 +18,7 @@
 - (IBAction)_searchButton:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *_loginButton;
+@property (readwrite, unsafe_unretained) id <FriendDelegate> _delegate;
 
 @end
 

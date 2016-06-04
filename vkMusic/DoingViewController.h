@@ -12,6 +12,7 @@
 @class DoingViewController;
 
 @protocol vkMusicDownloadDelegate<NSObject>
+-(unsigned long)getFriend;
 -(void)fileDidDownload:(NSString *)file;
 @end
 

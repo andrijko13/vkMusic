@@ -71,6 +71,13 @@
                                     <action selector="authorize:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Aja-6U-T8K"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qP-UE-j1i">
+                                <rect key="frame" x="20" y="384" width="560" height="65"/>
+                                <state key="normal" title="My Friends"/>
+                                <connections>
+                                    <segue destination="Xmh-Ya-x8Q" kind="presentation" id="VaG-Hl-r2F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -423,6 +430,119 @@
             </objects>
             <point key="canvasLocation" x="1600" y="-202"/>
         </scene>
+        <!--Friend Controller-->
+        <scene sceneID="hpA-1h-QgB">
+            <objects>
+                <viewController id="Xmh-Ya-x8Q" customClass="FriendController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gzN-BS-9JH"/>
+                        <viewControllerLayoutGuide type="bottom" id="Sia-ah-98h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DnH-m6-Ghd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBm-Jg-j8n">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <color key="barTintColor" red="0.33333333329999998" green="0.50196078430000002" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="My Friends" id="WhO-5r-KXw">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="0bm-r2-MhJ">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OJG-Xx-cfl">
+                                                <rect key="frame" x="20" y="7" width="57" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="vkMusic">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="backMainButton:" destination="VKx-NV-ocn" eventType="touchUpInside" id="aZr-B5-FaJ"/>
+                                                    <segue destination="9pv-A4-QxB" kind="presentation" id="cLq-8s-dUM"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mVW-dv-yXU">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="28"/>
+                                <color key="backgroundColor" red="0.33333333333333331" green="0.50196078431372548" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Whw-dl-9tX">
+                                <rect key="frame" x="0.0" y="72" width="600" height="484"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.078431375319999996" green="0.094117656349999995" blue="0.78823536630000002" alpha="1" colorSpace="deviceRGB"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyReuseIdentifier" id="aLn-Tl-RpC">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aLn-Tl-RpC" id="qHq-y3-8FP">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Xmh-Ya-x8Q" id="NU3-nj-r82"/>
+                                    <outlet property="delegate" destination="Xmh-Ya-x8Q" id="8nV-Km-AXU"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIT-to-mEs">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <color key="backgroundColor" red="0.33333333329999998" green="0.50196078430000002" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <items/>
+                                <color key="tintColor" red="0.2666666667" green="0.40784313729999999" blue="0.83137254900000002" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.33333333329999998" green="0.50196078430000002" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TBm-Jg-j8n" firstAttribute="leading" secondItem="DnH-m6-Ghd" secondAttribute="leadingMargin" constant="-20" id="6K0-Qd-bGt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Whw-dl-9tX" secondAttribute="trailing" constant="-20" id="817-Th-Ns7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QIT-to-mEs" secondAttribute="trailing" constant="-20" id="AOC-WN-Bdb"/>
+                            <constraint firstItem="mVW-dv-yXU" firstAttribute="top" secondItem="DnH-m6-Ghd" secondAttribute="topMargin" id="Aat-7R-jjE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mVW-dv-yXU" secondAttribute="trailing" constant="-20" id="Cs8-L9-WnB"/>
+                            <constraint firstItem="QIT-to-mEs" firstAttribute="bottom" secondItem="Sia-ah-98h" secondAttribute="top" id="ETH-vo-NvL"/>
+                            <constraint firstItem="TBm-Jg-j8n" firstAttribute="top" secondItem="mVW-dv-yXU" secondAttribute="bottom" id="Fi9-Tz-Sik"/>
+                            <constraint firstItem="TBm-Jg-j8n" firstAttribute="leading" secondItem="mVW-dv-yXU" secondAttribute="leading" id="M0C-GW-aWY"/>
+                            <constraint firstAttribute="trailing" secondItem="mVW-dv-yXU" secondAttribute="trailing" id="Mbi-rW-qFh"/>
+                            <constraint firstItem="TBm-Jg-j8n" firstAttribute="trailing" secondItem="mVW-dv-yXU" secondAttribute="trailing" id="NbA-4K-PNd"/>
+                            <constraint firstItem="Whw-dl-9tX" firstAttribute="leading" secondItem="DnH-m6-Ghd" secondAttribute="leadingMargin" constant="-20" id="ORE-Um-tsU"/>
+                            <constraint firstItem="TBm-Jg-j8n" firstAttribute="trailing" secondItem="Whw-dl-9tX" secondAttribute="trailing" id="QOK-le-Ol9"/>
+                            <constraint firstItem="TBm-Jg-j8n" firstAttribute="bottom" secondItem="Whw-dl-9tX" secondAttribute="top" id="R8o-Br-NCR"/>
+                            <constraint firstItem="Sia-ah-98h" firstAttribute="top" secondItem="QIT-to-mEs" secondAttribute="bottom" id="RG0-jn-V1U"/>
+                            <constraint firstItem="TBm-Jg-j8n" firstAttribute="top" secondItem="gzN-BS-9JH" secondAttribute="bottom" constant="8" id="V2N-bb-3BC"/>
+                            <constraint firstItem="TBm-Jg-j8n" firstAttribute="top" secondItem="mVW-dv-yXU" secondAttribute="bottom" id="dYq-B7-ZUk"/>
+                            <constraint firstItem="QIT-to-mEs" firstAttribute="top" secondItem="Whw-dl-9tX" secondAttribute="bottom" id="exl-ej-axk"/>
+                            <constraint firstItem="Whw-dl-9tX" firstAttribute="trailing" secondItem="QIT-to-mEs" secondAttribute="trailing" id="gGb-9g-ys8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TBm-Jg-j8n" secondAttribute="trailing" constant="-20" id="hig-st-40Z"/>
+                            <constraint firstItem="Whw-dl-9tX" firstAttribute="top" secondItem="TBm-Jg-j8n" secondAttribute="bottom" id="jMd-SU-Yj8"/>
+                            <constraint firstItem="mVW-dv-yXU" firstAttribute="top" secondItem="DnH-m6-Ghd" secondAttribute="top" id="l6Y-q1-IqT"/>
+                            <constraint firstItem="QIT-to-mEs" firstAttribute="top" secondItem="Whw-dl-9tX" secondAttribute="bottom" id="rCd-KT-AHe"/>
+                            <constraint firstItem="mVW-dv-yXU" firstAttribute="leading" secondItem="DnH-m6-Ghd" secondAttribute="leadingMargin" constant="-20" id="uSr-qP-q2f"/>
+                            <constraint firstItem="TBm-Jg-j8n" firstAttribute="leading" secondItem="Whw-dl-9tX" secondAttribute="leading" id="v2Z-MR-qgB"/>
+                            <constraint firstItem="mVW-dv-yXU" firstAttribute="leading" secondItem="DnH-m6-Ghd" secondAttribute="leading" id="vvm-Qz-UoC"/>
+                            <constraint firstItem="Whw-dl-9tX" firstAttribute="leading" secondItem="QIT-to-mEs" secondAttribute="leading" id="wYa-k0-j80"/>
+                            <constraint firstItem="QIT-to-mEs" firstAttribute="leading" secondItem="DnH-m6-Ghd" secondAttribute="leadingMargin" constant="-20" id="zGL-9R-Ci8"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="_musicTable" destination="Whw-dl-9tX" id="rgQ-98-I0m"/>
+                        <segue destination="VKx-NV-ocn" kind="presentation" identifier="friends_music" id="Gf7-5f-unn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tiV-GK-QPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1614" y="640"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="aLE-hc-waK">
             <objects>
@@ -599,6 +719,7 @@
         <image name="first" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nSC-e2-NI1"/>
+        <segue reference="cLq-8s-dUM"/>
+        <segue reference="Gf7-5f-unn"/>
     </inferredMetricsTieBreakers>
 </document>

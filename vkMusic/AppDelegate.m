@@ -13,6 +13,8 @@
 {
     STKAudioPlayer *audioPlayer;
     BOOL interruptStarted;
+    
+    unsigned long friend_id;
 }
 
 @end
@@ -108,7 +110,18 @@
 
 
 -(void)fileDidDownload:(NSString *)file{
-    [_myMusic addObject:file];
+    BOOL inserted = false;
+    int counter = 0;
+    for (NSString *file_name in _myMusic) {
+        if ([file compare:file_name] < 0){
+            [_myMusic insertObject:file atIndex:counter];
+            inserted = true;
+            break;
+        }
+        counter++;
+    }
+    
+    if (!inserted) [_myMusic addObject:file];
 }
 
 -(void)fileDidDownload2:(NSString *)file{
@@ -394,6 +407,14 @@
 
 -(void)sayHi{
     NSLog(@"HELLO HAHAHAH");
+}
+
+-(void)setFriend:(unsigned long)uid{
+    friend_id = uid;
+}
+
+-(unsigned long)getFriend{
+    return friend_id;
 }
 
 -(NSMutableArray *)getMusicArray{

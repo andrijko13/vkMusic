@@ -39,14 +39,30 @@
     [super viewDidLoad];
     _vkmusic = [[NSMutableArray alloc] initWithCapacity:30];
     // Do any additional setup after loading the view.
-    VKRequest *req = [VKRequest requestWithMethod:@"audio.get" andParameters:nil andHttpMethod:@"GET" classOfModel:[VKAudios class]];
+    
+    VKRequest *req;
+    unsigned long uid = [self._delegate getFriend];
+    NSString *u_id = [NSString stringWithFormat:@"%lu",uid];
+    NSLog(@"%lu",uid);
+    if (!uid) req = [VKRequest requestWithMethod:@"audio.get" andParameters:nil andHttpMethod:@"GET" classOfModel:[VKAudios class]];
+    else {
+        req = [VKRequest requestWithMethod:@"audio.get" andParameters:@{VK_API_USER_ID : @(uid)} andHttpMethod:@"GET" classOfModel:[VKAudios class]];
+    }
     [req executeWithResultBlock:^(VKResponse *response) {
         for (VKAudio *a in response.parsedModel) {
             [_vkmusic addObject:a];
+            NSLog(@"%@",a.title);
             //NSLog(@"%@", a.title);
         }
         [_musicTable reloadData];
-    } errorBlock:nil];
+    } errorBlock:^(NSError *err){
+        if (err.code != VK_API_ERROR) {
+            [err.vkError.request repeat];
+        } else {
+            NSLog(@"VK error: %@", err);
+            [[[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"Access to user's music denied!"] delegate:self cancelButtonTitle:@"Go Back" otherButtonTitles:nil] show];
+        }
+    }];
 }
 
 #pragma mark Memory Warning
