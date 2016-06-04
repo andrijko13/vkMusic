@@ -112,7 +112,20 @@
 }
 
 -(void)fileDidDownload2:(NSString *)file{
-    [_myMusic addObject:file];
+    BOOL inserted = false;
+    int counter = 0;
+    for (NSString *file_name in _myMusic) {
+        if ([file compare:file_name] < 0){
+            [_myMusic insertObject:file atIndex:counter];
+            inserted = true;
+            break;
+        }
+        counter++;
+    }
+    
+    if (!inserted) [_myMusic addObject:file];
+    
+    //[_myMusic addObject:file];
 }
 
 -(BOOL)getRepeat{
@@ -247,7 +260,7 @@
     else{
         if (_songOver && !_songStopped) {
             if (_repeatSong) _current--;
-            if (_shuffleSong) _current = arc4random() % [_myMusic count];
+            else if (_shuffleSong) _current = arc4random() % [_myMusic count];
             [self playNextSong];
         }
     }
@@ -265,6 +278,8 @@
     
     //NSLog(@"%@",[documentsDirPath stringByAppendingString:@"/music/"]);
     
+    [_myMusic removeAllObjects];
+    
     NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[documentsDirPath stringByAppendingString:@"/music/"] error:&error];
     if (files == nil) {
         // error...
@@ -277,6 +292,47 @@
             _max++;
         }
     }
+}
+
+-(void)allMusic{
+    [self lookThroughFiles];
+    NSInteger songIndex = [_myMusic indexOfObject:_currentSong];
+    if (songIndex) {
+        _current = songIndex;
+    }
+    else _current = 0;
+}
+
+-(NSMutableArray *)musicWithSubstring:(NSString *)substr{
+    
+    NSError *error;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirPath = [paths objectAtIndex:0];
+    substr = [substr lowercaseString];
+    
+    [_myMusic removeAllObjects];
+    
+    NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[documentsDirPath stringByAppendingString:@"/music/"] error:&error];
+    if (files == nil) {
+        // error...
+        NSLog(@"ERROR!");
+    }
+    
+    for (NSString *file in files) {
+        if ([file.pathExtension compare:@"mp3" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+            NSString *str = [file lowercaseString];
+            if ([str containsString:substr]) [_myMusic addObject:file];
+            _max++;
+        }
+    }
+    
+    NSInteger songIndex = [_myMusic indexOfObject:_currentSong];
+    if (songIndex) {
+        _current = songIndex;
+    }
+    else _current = 0;
+    
+    return _myMusic;
 }
 
 -(void)pauseClicked{
@@ -315,6 +371,11 @@
 }
 
 -(void)playNextSong{
+    
+    if (_myMusic.count == 0) {
+        return;
+    }
+    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirPath = [paths objectAtIndex:0];
     _current++;

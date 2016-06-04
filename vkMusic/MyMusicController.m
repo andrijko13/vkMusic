@@ -66,7 +66,9 @@
     _myTable.delegate = self;           // Set up the delegate's for the tableView
     _myTable.dataSource = self;
     
+    
     _defaultButtonColor = _shuffleButton.currentTitleColor; // set it to white color
+    [[UIBarButtonItem appearanceWhenContainedIn: [UISearchBar class], nil] setTintColor:[UIColor whiteColor]];
     
     if ([self._delegate getShuffle]){
         _shuffleSong = TRUE;
@@ -83,6 +85,7 @@
     [super viewDidLoad];
     
     _myMusic = [self._delegate getMusicArray]; // Get the music array so we can update our table
+    _searchMusic = [NSMutableArray arrayWithCapacity:_myMusic.count];
     [_myTable reloadData];
     
     // Do any additional setup after loading the view
@@ -166,10 +169,46 @@
     
 }
 
+#pragma mark - Search Bar
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    if ([searchBar.text isEqualToString:@""]) {
+        [self._delegate allMusic];
+    }
+    else{
+        [self._delegate musicWithSubstring:searchBar.text];
+        [self._myTable reloadData];
+    }
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+}
+
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    if (!searchBar.showsCancelButton) [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if ([searchText isEqualToString:@""]) {
+        [self._delegate allMusic];
+    }
+    else{
+        [self._delegate musicWithSubstring:searchBar.text];
+        [self._myTable reloadData];
+    }
+    if (!searchBar.showsCancelButton) [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [searchBar setText:@""];
+    [self._delegate allMusic];
+    [self._myTable reloadData];
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+}
+
 #pragma mark - Navigation
 
 /*
-
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].

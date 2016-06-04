@@ -21,12 +21,15 @@
 -(BOOL) getRepeat;
 -(BOOL) getShuffle;
 -(void) sayHi;
+-(NSMutableArray *) musicWithSubstring:(NSString *)substr;
+-(void) allMusic;
 -(NSMutableArray *) getMusicArray;
 @end
 
-@interface MyMusicController : UIViewController <UITableViewDelegate, UITableViewDataSource, STKAudioPlayerDelegate>
+@interface MyMusicController : UIViewController <UITableViewDelegate, UITableViewDataSource, STKAudioPlayerDelegate, UISearchBarDelegate>
 {
     NSMutableArray *_myMusic;
+    NSMutableArray *_searchMusic;
     BOOL _isEditing;
 }
 
