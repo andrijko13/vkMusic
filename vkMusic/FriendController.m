@@ -12,6 +12,7 @@
 @interface FriendController ()
 {
     NSMutableArray *_friends;
+    NSMutableArray *_allFriends;
 }
 
 @end
@@ -26,6 +27,7 @@
     self._delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     _friends = [NSMutableArray array];
+    _allFriends = [NSMutableArray array];
     //VKRequest *req = [VKRequest requestWithMethod:@"friends.get" andParameters:@{VK_API_FIELDS : @[@"uid", @"first_name", @"last_name"]} andHttpMethod:@"GET" classOfModel:[VKUser class]];
     VKRequest *req = [VKRequest requestWithMethod:@"friends.get" parameters:@{VK_API_FIELDS : @[@"uid", @"first_name", @"last_name"]}];
     [req executeWithResultBlock:^(VKResponse *response) {
@@ -33,12 +35,8 @@
         //NSLog(@"%@",a);
         for (NSDictionary *user in [a objectForKey:@"items"]) {
             [_friends addObject:user];
-//            NSString  *first = [user objectForKey:@"first_name"];
-//            NSString  *last  = [user objectForKey:@"last_name"];
-//            NSUInteger uid   = [[user objectForKey:@"id"] unsignedLongValue];
-//            NSString *name = [NSString stringWithFormat:@"%@ %@",first, last]
+            [_allFriends addObject:user];
         }
-        //NSLog(@"Json result: %@", response.parsedModel);
         [_musicTable reloadData];
     } errorBlock:nil];
     
@@ -91,6 +89,63 @@
         [self._delegate setFriend:uid];
 
         [self performSegueWithIdentifier:@"friends_music" sender:self];
+    }
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    if ([searchBar.text isEqualToString:@""]) {
+        [self allFriends];
+    }
+    else{
+        [self friendsWithSubstring:searchBar.text];
+        [self._musicTable reloadData];
+    }
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+}
+
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    if (!searchBar.showsCancelButton) [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if ([searchText isEqualToString:@""]) {
+        [self allFriends];
+    }
+    else{
+        [self friendsWithSubstring:searchBar.text];
+        [self._musicTable reloadData];
+    }
+    if (!searchBar.showsCancelButton) [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [searchBar setText:@""];
+    [self allFriends];
+    [self._musicTable reloadData];
+    [searchBar setShowsCancelButton:NO animated:YES];
+    [searchBar resignFirstResponder];
+}
+
+-(void)allFriends{
+    [_friends removeAllObjects];
+    for (NSDictionary *user in _allFriends) {
+        [_friends addObject:user];
+    }
+}
+
+-(void)friendsWithSubstring:(NSString *)substr{
+    substr = [substr lowercaseString];
+    
+    [_friends removeAllObjects];
+    
+    for (NSDictionary *user in _allFriends) {
+        NSString *first = [user objectForKey:@"first_name"];
+        NSString *last = [user objectForKey:@"last_name"];
+        NSString *name = [NSString stringWithFormat:@"%@ %@", first, last];
+//        NSLog(@"%@ in %@", name, substr);
+        NSString *str = [name lowercaseString];
+        if ([str containsString:substr]) [_friends addObject:user];
     }
 }
 

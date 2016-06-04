@@ -474,7 +474,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Whw-dl-9tX">
-                                <rect key="frame" x="0.0" y="72" width="600" height="484"/>
+                                <rect key="frame" x="0.0" y="116" width="600" height="440"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="0.078431375319999996" green="0.094117656349999995" blue="0.78823536630000002" alpha="1" colorSpace="deviceRGB"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
@@ -501,41 +501,55 @@
                                 <color key="tintColor" red="0.2666666667" green="0.40784313729999999" blue="0.83137254900000002" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.33333333329999998" green="0.50196078430000002" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="IKH-ZC-BGs">
+                                <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Xmh-Ya-x8Q" id="FGu-We-56U"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="TBm-Jg-j8n" firstAttribute="leading" secondItem="DnH-m6-Ghd" secondAttribute="leadingMargin" constant="-20" id="6K0-Qd-bGt"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Whw-dl-9tX" secondAttribute="trailing" constant="-20" id="817-Th-Ns7"/>
+                            <constraint firstItem="IKH-ZC-BGs" firstAttribute="top" secondItem="TBm-Jg-j8n" secondAttribute="bottom" id="7hl-A9-gYl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="QIT-to-mEs" secondAttribute="trailing" constant="-20" id="AOC-WN-Bdb"/>
                             <constraint firstItem="mVW-dv-yXU" firstAttribute="top" secondItem="DnH-m6-Ghd" secondAttribute="topMargin" id="Aat-7R-jjE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mVW-dv-yXU" secondAttribute="trailing" constant="-20" id="Cs8-L9-WnB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mVW-dv-yXU" secondAttribute="trailing" constant="-20" id="Dik-h6-XlN"/>
+                            <constraint firstItem="Sia-ah-98h" firstAttribute="top" secondItem="QIT-to-mEs" secondAttribute="bottom" id="EBb-85-6gr"/>
                             <constraint firstItem="QIT-to-mEs" firstAttribute="bottom" secondItem="Sia-ah-98h" secondAttribute="top" id="ETH-vo-NvL"/>
                             <constraint firstItem="TBm-Jg-j8n" firstAttribute="top" secondItem="mVW-dv-yXU" secondAttribute="bottom" id="Fi9-Tz-Sik"/>
+                            <constraint firstItem="TBm-Jg-j8n" firstAttribute="leading" secondItem="DnH-m6-Ghd" secondAttribute="leadingMargin" constant="-20" id="Gcc-vS-IIL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Whw-dl-9tX" secondAttribute="trailing" constant="-20" id="Ict-Pe-7aR"/>
                             <constraint firstItem="TBm-Jg-j8n" firstAttribute="leading" secondItem="mVW-dv-yXU" secondAttribute="leading" id="M0C-GW-aWY"/>
                             <constraint firstAttribute="trailing" secondItem="mVW-dv-yXU" secondAttribute="trailing" id="Mbi-rW-qFh"/>
                             <constraint firstItem="TBm-Jg-j8n" firstAttribute="trailing" secondItem="mVW-dv-yXU" secondAttribute="trailing" id="NbA-4K-PNd"/>
-                            <constraint firstItem="Whw-dl-9tX" firstAttribute="leading" secondItem="DnH-m6-Ghd" secondAttribute="leadingMargin" constant="-20" id="ORE-Um-tsU"/>
-                            <constraint firstItem="TBm-Jg-j8n" firstAttribute="trailing" secondItem="Whw-dl-9tX" secondAttribute="trailing" id="QOK-le-Ol9"/>
-                            <constraint firstItem="TBm-Jg-j8n" firstAttribute="bottom" secondItem="Whw-dl-9tX" secondAttribute="top" id="R8o-Br-NCR"/>
                             <constraint firstItem="Sia-ah-98h" firstAttribute="top" secondItem="QIT-to-mEs" secondAttribute="bottom" id="RG0-jn-V1U"/>
+                            <constraint firstItem="Whw-dl-9tX" firstAttribute="top" secondItem="IKH-ZC-BGs" secondAttribute="bottom" id="TZ4-qP-Xpc"/>
+                            <constraint firstItem="Whw-dl-9tX" firstAttribute="leading" secondItem="DnH-m6-Ghd" secondAttribute="leadingMargin" constant="-20" id="TfH-x0-v33"/>
                             <constraint firstItem="TBm-Jg-j8n" firstAttribute="top" secondItem="gzN-BS-9JH" secondAttribute="bottom" constant="8" id="V2N-bb-3BC"/>
                             <constraint firstItem="TBm-Jg-j8n" firstAttribute="top" secondItem="mVW-dv-yXU" secondAttribute="bottom" id="dYq-B7-ZUk"/>
-                            <constraint firstItem="QIT-to-mEs" firstAttribute="top" secondItem="Whw-dl-9tX" secondAttribute="bottom" id="exl-ej-axk"/>
-                            <constraint firstItem="Whw-dl-9tX" firstAttribute="trailing" secondItem="QIT-to-mEs" secondAttribute="trailing" id="gGb-9g-ys8"/>
+                            <constraint firstItem="IKH-ZC-BGs" firstAttribute="leading" secondItem="DnH-m6-Ghd" secondAttribute="leadingMargin" constant="-20" id="daM-PA-e23"/>
+                            <constraint firstItem="TBm-Jg-j8n" firstAttribute="top" secondItem="mVW-dv-yXU" secondAttribute="bottom" id="dqx-8T-QSZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TBm-Jg-j8n" secondAttribute="trailing" constant="-20" id="hig-st-40Z"/>
-                            <constraint firstItem="Whw-dl-9tX" firstAttribute="top" secondItem="TBm-Jg-j8n" secondAttribute="bottom" id="jMd-SU-Yj8"/>
                             <constraint firstItem="mVW-dv-yXU" firstAttribute="top" secondItem="DnH-m6-Ghd" secondAttribute="top" id="l6Y-q1-IqT"/>
-                            <constraint firstItem="QIT-to-mEs" firstAttribute="top" secondItem="Whw-dl-9tX" secondAttribute="bottom" id="rCd-KT-AHe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TBm-Jg-j8n" secondAttribute="trailing" constant="-20" id="oKh-Uj-QbQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QIT-to-mEs" secondAttribute="trailing" constant="-20" id="oqE-dt-h4i"/>
+                            <constraint firstItem="QIT-to-mEs" firstAttribute="leading" secondItem="DnH-m6-Ghd" secondAttribute="leadingMargin" constant="-20" id="ppY-7S-Sy3"/>
+                            <constraint firstItem="mVW-dv-yXU" firstAttribute="top" secondItem="DnH-m6-Ghd" secondAttribute="topMargin" id="qZa-ng-acz"/>
+                            <constraint firstItem="QIT-to-mEs" firstAttribute="top" secondItem="Whw-dl-9tX" secondAttribute="bottom" id="qyx-QB-zBJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IKH-ZC-BGs" secondAttribute="trailing" constant="-20" id="r8s-hq-Gzo"/>
+                            <constraint firstItem="mVW-dv-yXU" firstAttribute="leading" secondItem="DnH-m6-Ghd" secondAttribute="leadingMargin" constant="-20" id="s3k-Gx-v6s"/>
                             <constraint firstItem="mVW-dv-yXU" firstAttribute="leading" secondItem="DnH-m6-Ghd" secondAttribute="leadingMargin" constant="-20" id="uSr-qP-q2f"/>
-                            <constraint firstItem="TBm-Jg-j8n" firstAttribute="leading" secondItem="Whw-dl-9tX" secondAttribute="leading" id="v2Z-MR-qgB"/>
                             <constraint firstItem="mVW-dv-yXU" firstAttribute="leading" secondItem="DnH-m6-Ghd" secondAttribute="leading" id="vvm-Qz-UoC"/>
-                            <constraint firstItem="Whw-dl-9tX" firstAttribute="leading" secondItem="QIT-to-mEs" secondAttribute="leading" id="wYa-k0-j80"/>
                             <constraint firstItem="QIT-to-mEs" firstAttribute="leading" secondItem="DnH-m6-Ghd" secondAttribute="leadingMargin" constant="-20" id="zGL-9R-Ci8"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="_musicTable" destination="Whw-dl-9tX" id="rgQ-98-I0m"/>
+                        <outlet property="_searchBar" destination="IKH-ZC-BGs" id="p9D-Ah-y27"/>
                         <segue destination="VKx-NV-ocn" kind="presentation" identifier="friends_music" id="Gf7-5f-unn"/>
                     </connections>
                 </viewController>

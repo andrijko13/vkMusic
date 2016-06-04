@@ -15,8 +15,11 @@
 
 @end
 
-@interface FriendController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface FriendController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>{
+    
+}
 @property IBOutlet UITableView *_musicTable;
 @property (readwrite, unsafe_unretained) id<FriendDelegate> _delegate;
+@property (weak, nonatomic) IBOutlet UISearchBar *_searchBar;
 
 @end
