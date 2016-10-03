@@ -43,16 +43,23 @@
     VKRequest *req;
     unsigned long uid = [self._delegate getFriend];
     NSString *u_id = [NSString stringWithFormat:@"%lu",uid];
-    NSLog(@"%lu",uid);
+    NSLog(@"OUR UID: %lu",uid);
     if (!uid) req = [VKRequest requestWithMethod:@"audio.get" andParameters:nil andHttpMethod:@"GET" classOfModel:[VKAudios class]];
     else {
         req = [VKRequest requestWithMethod:@"audio.get" andParameters:@{VK_API_USER_ID : @(uid)} andHttpMethod:@"GET" classOfModel:[VKAudios class]];
     }
     [req executeWithResultBlock:^(VKResponse *response) {
-        for (VKAudio *a in response.parsedModel) {
-            [_vkmusic addObject:a];
-            NSLog(@"%@",a.title);
-            //NSLog(@"%@", a.title);
+        for (NSDictionary *a in [response.json objectForKey:@"items"]) {
+            VKAudio *s = [VKAudio new];
+            s.artist = [a objectForKey:@"artist"];
+            s.duration = [a objectForKey:@"duration"];
+            s.genre_id = [a objectForKey:@"genre_id"];
+            s.id = [a objectForKey:@"id"];
+            s.owner_id = [a objectForKey:@"owner_id"];
+            s.title = [a objectForKey:@"title"];
+            s.url = [a objectForKey:@"url"];
+            [_vkmusic addObject:s];
+            NSLog(@"%@", s);
         }
         [_musicTable reloadData];
     } errorBlock:^(NSError *err){

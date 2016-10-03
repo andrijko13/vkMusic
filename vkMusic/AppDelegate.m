@@ -15,6 +15,7 @@
     BOOL interruptStarted;
     
     unsigned long friend_id;
+    
 }
 
 @end
@@ -23,6 +24,8 @@
 @synthesize _myMusic;
 @synthesize _timer;
 @synthesize _audioPlayer;
+@synthesize _radioPlaying;
+@synthesize _token;
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     [VKSdk processOpenURL:url fromApplication:sourceApplication];
@@ -60,6 +63,8 @@
     
     _repeatSong = NO;
     _shuffleSong = NO;
+    
+    _isQueueing = NO;
     
     MPRemoteCommandCenter *commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
     commandCenter.playCommand.enabled = TRUE;
@@ -214,6 +219,24 @@
     [_audioPlayer setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
     
     _currentSong = title;
+}
+
+-(void)playFromHTTP:(NSURL *)url title:(NSString *)title owner_id:(NSString *)owner_id song_id:(NSString *)song_id{
+    
+    MPRemoteCommandCenter *commandCenter = [MPRemoteCommandCenter sharedCommandCenter];
+    commandCenter.playCommand.enabled = TRUE;
+    commandCenter.pauseCommand.enabled = TRUE;
+    commandCenter.nextTrackCommand.enabled = TRUE;
+    commandCenter.previousTrackCommand.enabled = FALSE;
+    
+    
+    STKDataSource *dataSource = [STKAudioPlayer dataSourceFromURL:url];
+    
+    [_audioPlayer setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
+    
+    _currentSong = title;
+    _radioowner = owner_id;
+    _radioid = song_id;
 }
 
 -(void) checkCurrent:(NSInteger)current{  // current is the index of the current song in the music array. If there is a conflict, we play next song (i.e. after deletion)
@@ -385,6 +408,36 @@
 
 -(void)playNextSong{
     
+    if (self._radioPlaying) {
+        
+        NSString *target_audio = [NSString stringWithFormat:@"%@_%@",_radioowner, _radioid];
+        
+        VKRequest *req = [VKRequest requestWithMethod:@"audio.getRecommendations" andParameters:@{@"target_audio" : target_audio} andHttpMethod:@"GET" classOfModel:[VKAudios class]];
+        
+        NSMutableArray *songs = [NSMutableArray array];
+        
+        [req executeWithResultBlock:^(VKResponse *response) {
+            int x = 0;
+            for (VKAudio *a in response.parsedModel) {
+                [songs addObject:a];
+                NSLog(@"%d: %@", x, a.title);
+                x++;
+                if (x >= 15) break;
+            }
+        
+            if ([songs count] == 0) {
+                return;
+            }
+            
+            unsigned long count = [songs count];
+            int d = arc4random() % count;
+            
+            VKAudio *song = [songs objectAtIndex:d];
+            [self playFromHTTP:[NSURL URLWithString:song.url] title:song.title owner_id:song.owner_id song_id:song.id];
+        } errorBlock:nil];
+        return;
+    }
+    
     if (_myMusic.count == 0) {
         return;
     }
@@ -409,6 +462,14 @@
     NSLog(@"HELLO HAHAHAH");
 }
 
+#pragma mark Music Array Getter
+
+-(NSMutableArray *)getMusicArray{
+    return _myMusic;
+}
+
+#pragma mark Friend Protocol Methods
+
 -(void)setFriend:(unsigned long)uid{
     friend_id = uid;
 }
@@ -417,8 +478,48 @@
     return friend_id;
 }
 
--(NSMutableArray *)getMusicArray{
-    return _myMusic;
+#pragma mark Queue Methods
+
+-(void)setQueue:(BOOL)shouldQueue{
+    if (shouldQueue){
+        _isQueueing = TRUE;
+    } else {
+        _isQueueing = NO;
+        [_audioPlayer clearQueue];
+    }
+}
+
+-(BOOL)isQueueing{
+    return (_isQueueing) ? TRUE : FALSE;
+}
+
+-(void)queueSong:(NSString *)title{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirPath = [paths objectAtIndex:0];
+    
+    NSString *musDirPath = [documentsDirPath stringByAppendingString:[NSString stringWithFormat: @"/music/%@",[title stringByAppendingPathComponent:@".mp3"]]];
+    NSURL* url = [NSURL fileURLWithPath:musDirPath];
+    
+    STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
+    
+    [_audioPlayer setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:1]];
+
+}
+
+-(void)setRadio:(BOOL)shouldPlay{
+    self._radioPlaying = shouldPlay;
+}
+
+-(BOOL)getRadio{
+    return self._radioPlaying;
+}
+
+-(void)setToken:(NSString *)token {
+    self._token = token;
+}
+
+-(NSString *)getToken {
+    return self._token;
 }
 
 @end

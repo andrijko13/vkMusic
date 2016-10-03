@@ -13,6 +13,9 @@
 
 @protocol vkMusDownloadDelegate<NSObject>
 -(void)fileDidDownload2:(NSString *)file;
+-(BOOL)getRadio;
+-(void)playFromHTTP:(NSURL *)url title:(NSString *)title owner_id:(NSString *)owner_id song_id:(NSString *)song_id;
+-(NSString *)getToken;
 @end
 
 @interface SecondViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>

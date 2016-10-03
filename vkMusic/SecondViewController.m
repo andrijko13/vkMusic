@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 
 #define NUMBER_OF_ITEMS_IN_ARRAY 200
+#define IS_CODING 200
 
 @interface SecondViewController ()
 {
@@ -30,6 +31,14 @@
 @synthesize _downloadLabel;
 @synthesize _progress;
 @synthesize _delegate;
+
+-(void)code{
+    
+}
+
+-(void)live_life{
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -113,19 +122,49 @@
         _songTitle = [song.title stringByAppendingString:@".mp3"];
         _fileName = [NSString stringWithFormat:@"%@/music/%@", documentsDirectory,[song.title stringByAppendingString:@".mp3"]];
         
-        [self downloadFromURL:url name:[song.title stringByAppendingString:@".mp3"]];
+        if ([self._delegate getRadio]) {
+            [self._delegate playFromHTTP:[NSURL URLWithString:song.url] title:song.title owner_id:song.owner_id song_id:song.id];
+        }
+        else {
+            [self downloadFromURL:url name:[song.title stringByAppendingString:@".mp3"]];
+        }
     }
+}
+
+-(void) mylife{
+    
+    if (IS_CODING) [self live_life];
+    else [self code];
+    
+    /* Yup */
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     [_vkmusic removeAllObjects];
     NSLog(@"Search clicked!");
+    
+    /*NSError *error = nil;
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.vk.com/method/audio.search?q=%@&sort=2&count=%i&access_token=%@", searchBar.text, NUMBER_OF_ITEMS_IN_ARRAY, [self._delegate getToken]]];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    NSString *ret = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:[ret dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&error];
+    NSLog(@"ret=%@", ret);*/
+    
     VKRequest *req = [VKRequest requestWithMethod:@"audio.search" andParameters:@{VK_API_Q: [NSString stringWithFormat:@"%@",searchBar.text], VK_API_SORT: @2, VK_API_COUNT: @NUMBER_OF_ITEMS_IN_ARRAY} andHttpMethod:@"GET" classOfModel:[VKAudios class]];
     [req executeWithResultBlock:^(VKResponse *response) {
         int x = 0;
-        for (VKAudio *a in response.parsedModel) {
-            [_vkmusic addObject:a];
-            NSLog(@"%d: %@", x, a.title);
+        NSLog(@"%@", [response.json objectForKey:@"items"]);
+        for (NSDictionary *a in [response.json objectForKey:@"items"]) {
+            VKAudio *s = [VKAudio new];
+            s.artist = [a objectForKey:@"artist"];
+            s.duration = [a objectForKey:@"duration"];
+            s.genre_id = [a objectForKey:@"genre_id"];
+            s.id = [a objectForKey:@"id"];
+            s.owner_id = [a objectForKey:@"owner_id"];
+            s.title = [a objectForKey:@"title"];
+            s.url = [a objectForKey:@"url"];
+            [_vkmusic addObject:s];
+            NSLog(@"%d: %@", x, s);
             x++;
             if (x >= NUMBER_OF_ITEMS_IN_ARRAY) break;
         }

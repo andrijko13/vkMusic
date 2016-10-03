@@ -7,6 +7,7 @@
 //
 
 #import "FirstViewController.h"
+#import "AppDelegate.h"
 
 static NSString *const TOKEN_KEY = @"my_application_access_token";
 static NSString *const NEXT_CONTROLLER_SEGUE_ID = @"START_WORK";
@@ -33,6 +34,12 @@ static NSArray  *SCOPE = nil;
 }
 
 - (IBAction)_searchButton:(id)sender {
+    [_delegate setRadio:false];
+    [self performSegueWithIdentifier:@"searchMusic" sender:self];
+}
+
+- (IBAction)_radioButton:(id)sender {
+    [_delegate setRadio:true];
     [self performSegueWithIdentifier:@"searchMusic" sender:self];
 }
 
@@ -55,6 +62,7 @@ static NSArray  *SCOPE = nil;
         if (state == VKAuthorizationAuthorized) {
             [_loginButton setTitle:@"Logged In" forState:UIControlStateNormal];
             [_loginButton setTitleColor:[UIColor colorWithRed:0.0f/255.0f green:210.0f/255.0f blue:118.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+            [self._delegate setToken: [VKSdk accessToken].accessToken];
             [self startWorking];
         } else if (error) {
             [[[UIAlertView alloc] initWithTitle:nil message:@"Your connection appears to be offline. Network services disabled." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
@@ -116,6 +124,8 @@ static NSArray  *SCOPE = nil;
 
 - (void)vkSdkAccessAuthorizationFinishedWithResult:(VKAuthorizationResult *)result {
     if (result.token) {
+        [self._delegate setToken: result.token.accessToken];
+        NSLog(@"HOLLA %@", result.token.accessToken);
         [self startWorking];
         [_loginButton setTitle:@"Logged In" forState:UIControlStateNormal];
         [_loginButton setTitleColor:[UIColor colorWithRed:0.0f/255.0f green:210.0f/255.0f blue:118.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
