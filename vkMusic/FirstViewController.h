@@ -22,6 +22,7 @@
 - (IBAction)_musButton:(id)sender;
 - (IBAction)_searchButton:(id)sender;
 - (IBAction)_radioButton:(id)sender;
+- (IBAction)_youtubeButton:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *_loginButton;
 @property (readwrite, unsafe_unretained) id <FriendDelegate, MainMenuDelegate> _delegate;

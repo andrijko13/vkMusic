@@ -43,6 +43,11 @@ static NSArray  *SCOPE = nil;
     [self performSegueWithIdentifier:@"searchMusic" sender:self];
 }
 
+- (IBAction)_youtubeButton:(id)sender {
+    //[_delegate setRadio:false];
+    [self performSegueWithIdentifier:@"youtube_segue" sender:self];
+}
+
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }

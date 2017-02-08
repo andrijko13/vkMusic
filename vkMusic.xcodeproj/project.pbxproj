@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		321BCE401E369EB700F828BA /* YoutubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 321BCE3F1E369EB700F828BA /* YoutubeViewController.m */; };
 		32357B2E1C7A934C00400B2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32357B2D1C7A934C00400B2F /* main.m */; };
 		32357B311C7A934C00400B2F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32357B301C7A934C00400B2F /* AppDelegate.m */; };
 		32357B341C7A934C00400B2F /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32357B331C7A934C00400B2F /* FirstViewController.m */; };
@@ -19,6 +20,8 @@
 		32357BB71C7AE20900400B2F /* DoingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32357BB61C7AE20900400B2F /* DoingViewController.m */; };
 		32357BBB1C7B9CCB00400B2F /* MyMusicController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32357BBA1C7B9CCB00400B2F /* MyMusicController.m */; };
 		32357BC31C7C52D000400B2F /* SoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 32357BC21C7C52D000400B2F /* SoundManager.m */; };
+		3267EB481D456BB90004E0EF /* RadioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3267EB471D456BB90004E0EF /* RadioController.m */; };
+		32745D861D0377F800C2BA17 /* FriendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32745D851D0377F800C2BA17 /* FriendController.m */; };
 		32B2A5831C7D104000D3110B /* NSMutableArray+STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A5711C7D104000D3110B /* NSMutableArray+STKAudioPlayer.m */; };
 		32B2A5841C7D104000D3110B /* STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A5731C7D104000D3110B /* STKAudioPlayer.m */; };
 		32B2A5851C7D104000D3110B /* STKAutoRecoveringHTTPDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B2A5751C7D104000D3110B /* STKAutoRecoveringHTTPDataSource.m */; };
@@ -81,6 +84,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		321BCE3E1E369EB700F828BA /* YoutubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoutubeViewController.h; sourceTree = "<group>"; };
+		321BCE3F1E369EB700F828BA /* YoutubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoutubeViewController.m; sourceTree = "<group>"; };
 		32357B291C7A934C00400B2F /* vkMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vkMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32357B2D1C7A934C00400B2F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32357B2F1C7A934C00400B2F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -104,6 +109,10 @@
 		32357BBA1C7B9CCB00400B2F /* MyMusicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMusicController.m; sourceTree = "<group>"; };
 		32357BC11C7C52D000400B2F /* SoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundManager.h; sourceTree = "<group>"; };
 		32357BC21C7C52D000400B2F /* SoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundManager.m; sourceTree = "<group>"; };
+		3267EB461D456BB90004E0EF /* RadioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioController.h; sourceTree = "<group>"; };
+		3267EB471D456BB90004E0EF /* RadioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadioController.m; sourceTree = "<group>"; };
+		32745D841D0377F800C2BA17 /* FriendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendController.h; sourceTree = "<group>"; };
+		32745D851D0377F800C2BA17 /* FriendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendController.m; sourceTree = "<group>"; };
 		32B2A5701C7D104000D3110B /* NSMutableArray+STKAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+STKAudioPlayer.h"; sourceTree = "<group>"; };
 		32B2A5711C7D104000D3110B /* NSMutableArray+STKAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+STKAudioPlayer.m"; sourceTree = "<group>"; };
 		32B2A5721C7D104000D3110B /* STKAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKAudioPlayer.h; sourceTree = "<group>"; };
@@ -178,8 +187,14 @@
 				32357BB61C7AE20900400B2F /* DoingViewController.m */,
 				32357BB91C7B9CCB00400B2F /* MyMusicController.h */,
 				32357BBA1C7B9CCB00400B2F /* MyMusicController.m */,
+				32745D841D0377F800C2BA17 /* FriendController.h */,
+				32745D851D0377F800C2BA17 /* FriendController.m */,
 				32B48DE81CC8050600BAD695 /* TableViewCell.h */,
 				32B48DE91CC8050600BAD695 /* TableViewCell.m */,
+				3267EB461D456BB90004E0EF /* RadioController.h */,
+				3267EB471D456BB90004E0EF /* RadioController.m */,
+				321BCE3E1E369EB700F828BA /* YoutubeViewController.h */,
+				321BCE3F1E369EB700F828BA /* YoutubeViewController.m */,
 				32357B2C1C7A934C00400B2F /* Supporting Files */,
 			);
 			path = vkMusic;
@@ -271,6 +286,8 @@
 				TargetAttributes = {
 					32357B281C7A934C00400B2F = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 3Z9S567B34;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -347,8 +364,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				32B2A5881C7D104000D3110B /* STKDataSourceWrapper.m in Sources */,
+				3267EB481D456BB90004E0EF /* RadioController.m in Sources */,
 				32357BB41C7AD8B900400B2F /* TestViewController.m in Sources */,
 				32B2A5871C7D104000D3110B /* STKDataSource.m in Sources */,
+				321BCE401E369EB700F828BA /* YoutubeViewController.m in Sources */,
 				32357BBB1C7B9CCB00400B2F /* MyMusicController.m in Sources */,
 				32357B371C7A934C00400B2F /* SecondViewController.m in Sources */,
 				32357B311C7A934C00400B2F /* AppDelegate.m in Sources */,
@@ -356,6 +375,7 @@
 				32357B341C7A934C00400B2F /* FirstViewController.m in Sources */,
 				32B2A5AB1C7D288E00D3110B /* SampleQueueId.m in Sources */,
 				32B2A58A1C7D104000D3110B /* STKLocalFileDataSource.m in Sources */,
+				32745D861D0377F800C2BA17 /* FriendController.m in Sources */,
 				32B2A5851C7D104000D3110B /* STKAutoRecoveringHTTPDataSource.m in Sources */,
 				32B2A5861C7D104000D3110B /* STKCoreFoundationDataSource.m in Sources */,
 				32357BB71C7AE20900400B2F /* DoingViewController.m in Sources */,
@@ -435,7 +455,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -472,7 +492,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -484,12 +504,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3Z9S567B34;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = vkMusic/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vkMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -501,12 +523,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3Z9S567B34;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = vkMusic/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vkMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
