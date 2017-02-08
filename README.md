@@ -4,6 +4,9 @@
 [![vkMusicVersion](https://img.shields.io/badge/release-v1.1.1-blue.svg)]()
 [![vkMusicVersion](https://img.shields.io/badge/license-BSD 3--clause revised-blue.svg)]()
 
+# IMPORTANT UPDATE #
+<b> Public access to the VK Api was disabled, and as of 2017, it is no longer possible to get music data from VK, and thus much of vkMusic's functionality is broken. A youtube feature has been added to enable similar functionality, but the code for VK will NOT be deleted, as the original intent of this project was to provide example usage of VK API </b>
+
 vkMusic is a piece of software that is intended to show one of the possible uses of the VK iOS API by downloading music onto the phone to be later replayed
 while the user is offline. The software is not yet complete, but is a working version that people can use in countries where it is legal
 to download such content.
