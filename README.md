@@ -11,7 +11,7 @@ vkMusic is a piece of software that is intended to show one of the possible uses
 while the user is offline. The user can listen to friend's music, suggestions based on previous playback, as well as sync with their VK media library.
 
 ## Fair Use
-TThis software is intended to be used for educational purposes. Feel free to copy, modify, and redistribute the
+This software is intended to be used for educational purposes. Feel free to copy, modify, and redistribute the
 software as long as credit is given to the various contributors. Since this software is intended to demonstrate an example of the VK
 iOS API usage, no contributors may be liable for any damages or any copyright infringements that might occur due to downloads of 
 copyrighted content. In jurisdictions where it's legal to download music for personal use, this project may be built as a comlete piece
